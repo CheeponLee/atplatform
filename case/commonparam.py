@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- 
 
 uploadcaseport=778
-tmpdir='tmp'
+tmpdir='tmp/'
 maxuploadcase=20
 
 # db
