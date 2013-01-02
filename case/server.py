@@ -1,11 +1,15 @@
 #! /usr/bin/env python 
 # -*- coding: utf-8 -*- 
+import os
+import sys
+reload(sys)
+curdir=os.getcwd()
+if not curdir[:-4] in sys.path :
+	sys.path.append(curdir[:-4])
 
 from atplatform.case import commonparam as cp
 import tornado.ioloop
 import tornado.web
-import sys
-reload(sys)
 import atplatform.case.sharedobject as so
 from atplatform.case import testlogging
 
