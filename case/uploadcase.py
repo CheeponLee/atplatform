@@ -7,6 +7,7 @@ from atplatform.case import sharedobject as so
 from atplatform.case.mappedtable import *
 from sqlalchemy.exc import *
 from sqlalchemy import desc
+from atplatform.case import commonparam as cp
 import shutil
 import re
 import zipfile
