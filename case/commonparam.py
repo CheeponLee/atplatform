@@ -3,7 +3,7 @@
 
 uploadcaseport=778
 tmpdir='tmp'
-maxuploadcases=20
+maxuploadcase=20
 
 # db
 Connect_string='mysql+mysqldb://root:root@192.168.1.113:3306/selenium?charset=utf8'
