@@ -21,12 +21,8 @@ class uploadcase(tornado.web.RequestHandler):
 		tmpdirname=str(int(time.time()*1000))+str(random.randint(1,1000))
 		try:
 			data=urllib.unquote(self.request.body)
-			print data
-			f=file('data','w')
-			f.write(data)
-			f.close()
-			filepath=re.search('(?<=path.\n\n).*(?=\n)',data).group()
-			filename=re.search('(?<=name.\n\n).*(?=\n)',data).group()
+			filepath=re.search('(?<=path.\r\n\r\n).*(?=\r\n)',data).group()
+			filename=re.search('(?<=name.\r\n\r\n).*(?=\r\n)',data).group()
 			print filepath,filename
 			if zipfile.is_zipfile(filepath):
 				zipf=zipfile.ZipFile(filepath)
