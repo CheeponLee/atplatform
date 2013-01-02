@@ -13,6 +13,7 @@ import zipfile
 import time
 import random
 import os
+import traceback
 
 class uploadcase(tornado.web.RequestHandler):
 	def post(self,argv):
@@ -20,8 +21,8 @@ class uploadcase(tornado.web.RequestHandler):
 		tmpdirname=str(int(time.time()*1000))+str(random.randint(1,1000))
 		try:
 			data=urllib.unquote(self.request.body)
-			filepath=data.search('(?<=path.\n).*(?=\n)').group()
-			filename=data.search('(?<=name.\n).*(?=\n)').group()
+			filepath=re.search('(?<=path.\n).*(?=\n)',data).group()
+			filename=re.search('(?<=name.\n).*(?=\n)',data).group()
 			print filepath,filename
 			if zipfile.is_zipfile(filepath):
 				zipf=zipfile.ZipFile(filepath)
@@ -41,7 +42,7 @@ class uploadcase(tornado.web.RequestHandler):
 				so.userlog.error('upload file is not a zip file,filename:'+str(filename))
 				return
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured in uploading case ,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')

@@ -3,9 +3,7 @@
 import os
 import sys
 reload(sys)
-curdir=os.getcwd()
-if not curdir[:-4] in sys.path :
-	sys.path.append(curdir[:-4])
+sys.path.append('/home/uls/software')
 
 from atplatform.case import commonparam as cp
 import tornado.ioloop
