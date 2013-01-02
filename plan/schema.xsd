@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="plan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="planname"/>
+        <xs:element ref="starttime"/>
+        <xs:element ref="cases"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="planname" type="xs:string"/>
+  <xs:element name="starttime" type="xs:string"/>
+  <xs:element name="cases">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element ref="case"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="case">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="casename"/>
+        <xs:element ref="config"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="casename" type="xs:string"/>
+  <xs:element name="config">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Browsername"/>
+        <xs:element ref="Browserversion"/>
+        <xs:element ref="ignoreProtectedModeSettings"/>
+        <xs:element ref="Platform"/>
+        <xs:element ref="Findtimeout"/>
+        <xs:element ref="Webdriverhub"/>
+        <xs:element ref="Javascriptenabled"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Browsername" type="xs:string"/>
+  <xs:element name="Browserversion" type="xs:string"/>
+  <xs:element name="ignoreProtectedModeSettings" type="xs:boolean"/>
+  <xs:element name="Platform" type="xs:string"/>
+  <xs:element name="Findtimeout" type="xs:nonNegativeInteger"/>
+  <xs:element name="Webdriverhub" type="xs:anyURI"/>
+  <xs:element name="Javascriptenabled" type="xs:boolean"/>
+</xs:schema>

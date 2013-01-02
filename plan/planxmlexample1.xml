@@ -1,0 +1,22 @@
+<plan>
+<planname>
+plan1
+</planname>
+<starttime>
++13
+</starttime>
+<cases>
+	<case>
+		<casename>case1</casename>
+		<config>
+			<Browsername>IE</Browsername>
+			<Browserversion>9</Browserversion>
+			<ignoreProtectedModeSettings>true</ignoreProtectedModeSettings>
+			<Platform>WINDOWS</Platform>
+			<Findtimeout>10</Findtimeout>
+			<Webdriverhub>http://localhost:4444/wd/hub</Webdriverhub>
+			<Javascriptenabled>true</Javascriptenabled>
+		</config>
+	</case>
+</cases>
+</plan>

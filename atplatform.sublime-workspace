@@ -1,0 +1,692 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"exce",
+				"exceptionpic"
+			],
+			[
+				"res",
+				"results"
+			],
+			[
+				"pro",
+				"processlog"
+			],
+			[
+				"R",
+				"ReportStatus"
+			],
+			[
+				"plan",
+				"planname"
+			],
+			[
+				"rep",
+				"report"
+			],
+			[
+				"push",
+				"pushqueuecount	(attribute, instance)"
+			],
+			[
+				"run",
+				"runmanagerlog"
+			],
+			[
+				"dur",
+				"during"
+			],
+			[
+				"case",
+				"casename	(local, instance)"
+			],
+			[
+				"runma",
+				"runmanager"
+			],
+			[
+				"runm",
+				"runmanager"
+			],
+			[
+				"form",
+				"format_exc"
+			],
+			[
+				"list",
+				"listen"
+			],
+			[
+				"st",
+				"stopplans	(global, class)"
+			],
+			[
+				"excu",
+				"execute	(imported, instance)"
+			],
+			[
+				"force",
+				"forcestop"
+			],
+			[
+				"rev",
+				"received"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"hel",
+				"helper"
+			],
+			[
+				"sub",
+				"subquery"
+			],
+			[
+				"ACU",
+				"ACUTType_ID"
+			],
+			[
+				"ac",
+				"acut	(local, instance)"
+			],
+			[
+				"AC",
+				"ACUTType_ID"
+			],
+			[
+				"su",
+				"subquery"
+			],
+			[
+				"acu",
+				"acut_subq	(local, instance)"
+			],
+			[
+				"aut",
+				"aut_ids	(local, instance)"
+			],
+			[
+				"Lo",
+				"Locator"
+			],
+			[
+				"ACUT",
+				"ACUTType"
+			],
+			[
+				"el",
+				"else	(keyword, instance)"
+			],
+			[
+				"exc",
+				"except	(keyword, instance)"
+			],
+			[
+				"l",
+				"LastModifyTime"
+			],
+			[
+				"set",
+				"set_trace"
+			],
+			[
+				"acut",
+				"acutidstr	(local, instance)"
+			],
+			[
+				"add",
+				"addlocator	(local, instance)"
+			],
+			[
+				"lo",
+				"locatortype	(local, instance)"
+			],
+			[
+				"au",
+				"auts	(local, instance)"
+			],
+			[
+				"locato",
+				"locator"
+			],
+			[
+				"L",
+				"LocatorType"
+			],
+			[
+				"De",
+				"DESC	(local, instance)"
+			],
+			[
+				"AU",
+				"AUT"
+			],
+			[
+				"ver",
+				"version	(local, instance)"
+			],
+			[
+				"Ac",
+				"ACUT"
+			],
+			[
+				"AUT",
+				"AUTType"
+			],
+			[
+				"C",
+				"CreateTime"
+			],
+			[
+				"glo",
+				"global	(keyword, instance)"
+			],
+			[
+				"pla",
+				"planname"
+			],
+			[
+				"for",
+				"forcestopplan"
+			],
+			[
+				"pl",
+				"planlist"
+			],
+			[
+				"planna",
+				"planname	(local, instance)"
+			],
+			[
+				"clas",
+				"classmethod	(builtin, class)"
+			],
+			[
+				"pan",
+				"planname	(local, instance)"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "plan/server.py",
+			"settings":
+			{
+				"buffer_size": 23157,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "plan/mappedtable.py",
+			"settings":
+			{
+				"buffer_size": 3401,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/ls/Desktop/testcase/datadriven/excelp.py",
+			"settings":
+			{
+				"buffer_size": 330,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/ls/Desktop/testcase/datadriven/datadriventest.py",
+			"settings":
+			{
+				"buffer_size": 1015,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/ls/Desktop/excelp.py",
+		"/C/Users/ls/Desktop/excelp - 副本.py",
+		"/C/Users/ls/Desktop/testcase/login - 副本.py",
+		"/C/workplace/atplatform/report/mappedtable.py",
+		"/C/workplace/atplatform/report/server.py",
+		"/C/workplace/atplatform/report/receive.py",
+		"/C/workplace/atplatform/report/planresult.py",
+		"/C/workplace/atplatform/report/sharedobject.py",
+		"/C/workplace/atplatform/report/commonparam.py",
+		"/C/workplace/atplatform/report/testlogging.py",
+		"/C/workplace/atplatform/plan/server.py",
+		"/C/workplace/atplatform/wc/sharedobject.py",
+		"/C/workplace/atplatform/plan/commonparam.py",
+		"/C/workplace/atplatform/wc/commonparam.py",
+		"/C/workplace/atplatform/plan/sharedobject.py",
+		"/C/workplace/atplatform/plan/testlogging.py",
+		"/C/workplace/atplatform/plan/runengine/runqueue.py",
+		"/C/workplace/atplatform/plan/runengine/execute.py",
+		"/C/workplace/atplatform/plan/testcasebase.py",
+		"/C/workplace/atplatform/plan/plan.py",
+		"/C/workplace/atplatform/plan/runengine/exceptioncatch.py",
+		"/C/workplace/atplatform/wc/httpapi/acut.py",
+		"/C/workplace/atplatform/plan/runengine/runningmanager.py",
+		"/C/workplace/atplatform/plan/objectmappingbase.py",
+		"/C/workplace/atplatform/plan/runengine/runninginfo.py",
+		"/C/workplace/atplatform/plan/mappedtable.py",
+		"/C/workplace/atplatform/plan/redisproccess/redisconnector.py",
+		"/C/workplace/atplatform/plan/sc.py",
+		"/C/workplace/atplatform/atplatform.sublime-project",
+		"/C/workplace/atplatform/wc/testlogging.py",
+		"/C/workplace/atplatform/wc/server.py",
+		"/C/workplace/atplatform/wc/httpapi/aut.py",
+		"/C/workplace/atplatform/wc/httpapi/locator.py",
+		"/C/workplace/atplatform/wc/mappedtable.py",
+		"/C/workplace/atplatform/wc/httpapi/export.py",
+		"/C/Users/ls/Downloads/ee (2).py",
+		"/C/Users/ls/Downloads/objectmapping (2).py",
+		"/C/Users/ls/Downloads/objectmapping (1).py",
+		"/C/Users/ls/Downloads/objectmapping.py",
+		"/C/Users/ls/Desktop/下载~/objctmapping.py",
+		"/C/Users/ls/Desktop/objectmapping.py",
+		"/C/Users/ls/Downloads/ee.py",
+		"/C/Users/ls/Desktop/objctmapping.py",
+		"/C/workplace/atplatform/wc/httpapi/__init__.py",
+		"/C/workplace/atplatform/wc/httpapi/exportsearch.py",
+		"/C/workplace/atplatform/wc/__init__.py",
+		"/C/workplace/atplatform/__init__.py",
+		"/C/workplace/atplatform/wc/httpapi/locatortype.py",
+		"/C/workplace/atplatform/wc/httpapi/acuttype.py",
+		"/C/workplace/atplatform/wc/httpapi/aut_acut_rel.py",
+		"/C/Users/ls/Desktop/pygraphviz-1.1/setup.py",
+		"/C/workplace/atplatform/wc/httpapi/aut_acut_rel",
+		"/C/workplace/atplatform/wc/httpapi/acuttype",
+		"/C/workplace/atplatform/httpapi/aut.py",
+		"/C/workplace/atplatform/server.py",
+		"/C/workplace/atplatform/sharedobject.py",
+		"/C/workplace/atplatform/mappedtable.py",
+		"/C/workplace/atplatform/testlogging.py",
+		"/C/workplace/atplatform/atplatform.sublime-workspace",
+		"/C/workplace/atplatform/commonparam.py",
+		"/C/Python27/lib/site-packages/sqlalchemy/schema.py",
+		"/C/workplace/newselenium/httpapi/aut.py",
+		"/C/workplace/newselenium/server.py",
+		"/C/workplace/newselenium/commonparam.py",
+		"/C/workplace/newselenium/sharedobject.py",
+		"/C/workplace/newselenium/testlogging.py",
+		"/C/workplace/newselenium/mappedtable.py",
+		"/C/workplace/newselenium/httpapi/__init__.py",
+		"/C/workplace/selenium/restapi/search/aut.py",
+		"/C/workplace/selenium/dbpool.py",
+		"/C/workplace/plan/sharedobject.py",
+		"/C/workplace/plan/plan.py",
+		"/C/workplace/plan/runengine/runningmanager.py",
+		"/C/workplace/plan/runengine/execute.py",
+		"/C/Users/ls/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/ls/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"write",
+			"passed",
+			"planname",
+			"planstatus",
+			"reportstatus",
+			"planstatus",
+			"cp",
+			"stopplans",
+			"import pdb",
+			"caseexecuteerrorlog",
+			"checkrun",
+			"planprogesslog",
+			"so.runmanager.",
+			"so.runningmanager.",
+			"runningmanager.",
+			"IntegrityError",
+			"home",
+			"execute",
+			"popqueue",
+			"execute",
+			"excute",
+			"popqueue",
+			"pop\npopqueue",
+			"popqueue\npopqueue",
+			"popqueue",
+			"runningqueuelength",
+			"length\nrunningqueuelength",
+			"length",
+			"queue",
+			"pushqueuecount",
+			"runqueue",
+			"exceptioncatch",
+			"so.info",
+			"so.infoo",
+			"so.war",
+			"so.wa",
+			"setworkerinfo",
+			"waitingqueue",
+			"flushrunmanager",
+			"killworker",
+			"finishedtocall",
+			"__setplanstatus",
+			"forcestop",
+			"__run",
+			"checkstatus",
+			"planhandlers",
+			"setplancases",
+			"so.info",
+			"testlogging",
+			"so.debug",
+			"so.debu",
+			"exist",
+			"cp",
+			"commonparam",
+			"desc",
+			"page_helper",
+			"desc",
+			"des",
+			"desc",
+			"_ids",
+			"in_",
+			"index",
+			"=1",
+			"split",
+			"auttype",
+			"acuttype",
+			"atplatform",
+			"AUTType",
+			"acutype",
+			"acuttype",
+			"acut",
+			"pool",
+			"sharedobj",
+			"planlist",
+			"stop",
+			"__setplanstatus",
+			"stop",
+			"PlanStatus",
+			"__setplanstatus",
+			"Planstatus",
+			"__join",
+			"stopplan",
+			"plan.planhandlers",
+			"planhandlers",
+			"plans",
+			"plan.planhandlers",
+			"plans",
+			"stop",
+			"stopplan",
+			"stop",
+			"_do",
+			"get result",
+			"ctrl+space"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "plan/server.py",
+					"settings":
+					{
+						"buffer_size": 23157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1796,
+								1796
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "plan/mappedtable.py",
+					"settings":
+					{
+						"buffer_size": 3401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3290,
+								3290
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1125.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/ls/Desktop/testcase/datadriven/excelp.py",
+					"settings":
+					{
+						"buffer_size": 330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								240,
+								240
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/ls/Desktop/testcase/datadriven/datadriventest.py",
+					"settings":
+					{
+						"buffer_size": 1015,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								962,
+								962
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 192.0,
+	"status_bar_visible": true
+}

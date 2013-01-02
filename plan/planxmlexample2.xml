@@ -1,0 +1,34 @@
+<plan>
+<planname>
+plan1
+</planname>
+<starttime>
++5
+</starttime>
+<cases>
+	<case>
+		<casename>case2</casename>
+		<config>
+			<Browsername>chrome</Browsername>
+			<Browserversion></Browserversion>
+			<ignoreProtectedModeSettings>true</ignoreProtectedModeSettings>
+			<Platform>WINDOWS</Platform>
+			<Findtimeout>10</Findtimeout>
+			<Webdriverhub>http://localhost:4444/wd/hub</Webdriverhub>
+			<Javascriptenabled>true</Javascriptenabled>
+		</config>
+	</case>
+<case>
+		<casename>case2</casename>
+		<config>
+			<Browsername>chrome</Browsername>
+			<Browserversion></Browserversion>
+			<ignoreProtectedModeSettings>true</ignoreProtectedModeSettings>
+			<Platform>WINDOWS</Platform>
+			<Findtimeout>10</Findtimeout>
+			<Webdriverhub>http://localhost:4444/wd/hub</Webdriverhub>
+			<Javascriptenabled>true</Javascriptenabled>
+		</config>
+	</case>
+</cases>
+</plan>

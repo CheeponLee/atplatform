@@ -1,0 +1,5 @@
+http://localhost:775/forcestopplan?planname=plan1
+
+http://localhost:775/planstauts?planname=plan1
+
+http://localhost:775/planinfo?planname=plan1
