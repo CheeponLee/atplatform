@@ -91,7 +91,7 @@ class uploadcase(tornado.web.RequestHandler):
 				for r in acut_locator_list:
 					rel=ACUT_Locator_Case_rel()
 					rel.ACUT_ID=r[0]
-					rel.Locator_ID=r[0]
+					rel.Locator_ID=r[1]
 					rel.Case=c
 					sess.add(rel)
 				sess.commit()
