@@ -22,6 +22,7 @@ class uploadcase(tornado.web.RequestHandler):
 		sess=None
 		tmpdirname=str(int(time.time()*1000))+str(random.randint(1,1000))
 		passedcases=[]
+		so.userlog.info('recived uploadcase request')
 		try:
 			data=urllib.unquote(self.request.body)
 			filepath=re.search('(?<=path.\r\n\r\n).*(?=\r\n)',data).group()
@@ -37,15 +38,24 @@ class uploadcase(tornado.web.RequestHandler):
 					so.userlog.error('too many cases,'+str(len(dirlist))+'>'+str(cp.maxuploadcase))
 				else:
 					sess=so.Session()
+					so.userlog.debug('open a db Session for uploadcase request,filename='+str(filename))
 					for ca in dirlist:
 						res=self.addcase(tmpdirname,ca,sess)
 						if res==True:
 							passedcases.append(ca)
+							so.userlog.info('success add case,casename:'+str(ca))
 				shutil.rmtree(cp.tmpdir+tmpdirname)
+				so.userlog.debug('delete tmp dir ,tmpdir:'+str(tmpdirname)+',filename:'+str(filename))
 				if len(passedcases)==len(dirlist):
 					self.write('all cases uploaded success')
+					so.userlog.info('all cases uploaded success,upload filename:'+str(filename))
 				else:
-					self.write('upload success cases:'+','.join(passedcases))
+					if len(passedcases)==0:
+						self.write('no cases success uploaded')
+						so.userlog.error('cases upload failed,upload filename:'+str(filename))
+					else:
+						self.write('upload success cases:'+','.join(passedcases))
+						so.userlog.warning('some cases uploaded success,upload success cases:'+','.join(passedcases)+',upload filename:'+str(filename))
 			else:
 				self.write('upload file is not a zip file')
 				so.userlog.error('upload file is not a zip file,filename:'+str(filename))
@@ -59,6 +69,7 @@ class uploadcase(tornado.web.RequestHandler):
 		finally:
 			if sess!=None:
 				sess.close()
+				so.userlog.debug('close db Session for uploadcase request,filename='+str(filename))
 
 	def get_relation(self,acut_locator_list,mappingpath,s):
 		f=None
@@ -75,6 +86,7 @@ class uploadcase(tornado.web.RequestHandler):
 		except:
 			if f!=None:
 				f.close()
+			so.userlog.error('error occured during get_relation,mappingpath:'+str(mappingpath))
 
 	def addcase(self,tmpdirname,ca,sess):
 		try:
@@ -100,7 +112,7 @@ class uploadcase(tornado.web.RequestHandler):
 			else:
 				return False
 		except Exception,e:
-			so.userlog.error('error occured in adding case ,traceback:'+str(traceback.format_exc()))
+			so.userlog.error('error occured in adding case : '+str(ca)+',traceback:'+str(traceback.format_exc()))
 			if os.path.exists(cp.casesdir+ca):
 				shutil.rmtree(cp.casesdir+ca)
 			if sess!=None:
