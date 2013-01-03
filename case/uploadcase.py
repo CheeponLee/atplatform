@@ -94,7 +94,7 @@ class uploadcase(tornado.web.RequestHandler):
 					rel.Locator_ID=r[1]
 					rel.Case=c
 					sess.add(rel)
-				shutil.copytree(cp.tmpdir+tmpdirname+'/'+ca+'/',cp.casesdir)
+				shutil.copytree(cp.tmpdir+tmpdirname+'/'+ca,cp.casesdir+ca)
 				sess.commit()
 				return True
 			else:
