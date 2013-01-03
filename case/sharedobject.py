@@ -20,3 +20,5 @@ def Init():
 	engine=create_engine(cp.Connect_string,pool_size=cp.dbpoolsize,max_overflow=0,pool_timeout=cp.dbpool_timeout,pool_recycle=cp.dbpool_recycle,echo=cp.dbecho)
 	Session = sessionmaker(bind=engine)
 	metadata.reflect(bind=engine)
+
+casestatus=['inusing','enable','disable']

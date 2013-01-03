@@ -3,6 +3,7 @@
 
 uploadcaseport=778
 tmpdir='tmp/'
+casesdir='../plan/cases/'
 maxuploadcase=20
 
 # db
