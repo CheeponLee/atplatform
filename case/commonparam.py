@@ -3,7 +3,7 @@
 
 uploadcaseport=778
 tmpdir='tmp/'
-casesdir='../plan/cases/'
+casesdir='/home/uls/software/atplatform/plan/cases/'
 maxuploadcase=20
 
 # db
