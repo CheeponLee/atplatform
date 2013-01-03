@@ -94,16 +94,15 @@ class uploadcase(tornado.web.RequestHandler):
 					rel.Locator_ID=r[1]
 					rel.Case=c
 					sess.add(rel)
+				shutil.copytree(cp.tmpdir+tmpdirname+'/'+ca+'/',cp.casesdir)
 				sess.commit()
-				try:
-					shutil.copytree(cp.tmpdir+tmpdirname+'/'+ca+'/',cp.casesdir)
-				except:
-					shutil.rmtree(cp.casesdir+ca)
 				return True
 			else:
 				return False
 		except Exception,e:
 			so.userlog.error('error occured in adding case ,traceback:'+str(traceback.format_exc()))
+			if os.path.exists(cp.casesdir+ca):
+				shutil.rmtree(cp.casesdir+ca)
 			if sess!=None:
 				sess.rollback()
 			return False
