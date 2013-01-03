@@ -21,4 +21,4 @@ def Init():
 	Session = sessionmaker(bind=engine)
 	metadata.reflect(bind=engine)
 
-casestatus=['inusing','enable','disable']
+casestatus=['inusing','enabled','disabled']
