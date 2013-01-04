@@ -1,11 +1,15 @@
 #! /usr/bin/env python 
 # -*- coding: utf-8 -*- 
 import tornado.web
+import os
 import urllib
+import re
 from atplatform.wc import sharedobject as so
+from atplatform.wc import commonparam as cp
 from atplatform.wc.mappedtable import *
 from sqlalchemy.exc import *
 from sqlalchemy import desc
+import traceback
 
 def getvalue(params,key,default=None):
 	try:
@@ -51,7 +55,7 @@ class add(tornado.web.RequestHandler):
 				sess.rollback()
 			self.write('failed,params conflict')
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during add acut,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
@@ -107,7 +111,7 @@ class modify(tornado.web.RequestHandler):
 				sess.rollback()
 			self.write('failed,params conflict')
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during modify acut,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
@@ -171,7 +175,7 @@ class search(tornado.web.RequestHandler):
 			so.userlog.info('return '+str(len(res))+' acuts')
 			self.write(str(returnlist).replace('None','null').replace("u'$$##","'"))
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during search acut,traceback:'+str(traceback.format_exc()))
 			if s!=None:
 				s.rollback()
 			self.write('failed')
@@ -190,25 +194,94 @@ class delete(tornado.web.RequestHandler):
 		sess=None
 		try:
 			data=urllib.unquote(self.request.body)
-			ids=[int(x) for x in data.split('=')[1].split(',')]
+			params=dict(t.split('=') for t in [i for i in data.split('&')])
+			ids=params['deleteids']
 			res={}
 			sess=so.Session()
-			for x in ids:
+			for x in ids.split(','):
+				casenames=[]
 				try:
-					sess.query(ACUT).filter(ACUT.ID==int(x)).delete()
-					res[x]='success'
-				except:
-					so.userlog.error('delete acut:'+str(x)+' failed')
+					cases_ids=None
+					distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+					flag=True
+					if len(distacut.ACUT_Locator_Case_rel)!=0:
+						cases=sess.query(ACUT_Locator_Case_rel.Case_ID).filter(ACUT_Locator_Case_rel.ACUT_ID==int(x)).group_by(ACUT_Locator_Case_rel.Case_ID)
+						cases_ids=[i[0] for i in cases.all()]
+						flag,casenames=self.modifycasefile(int(x),distacut.ACUTType.Name,cases_ids, sess)
+					if (flag==True):
+						sess.delete(distacut)
+						sess.commit()
+						res[x]='success'
+						self.replacecasefile(casenames)
+					else:
+						res[x]='failed'
+				except Exception,e:
+					so.userlog.error('delete acut:'+str(x)+' failed'+',traceback:'+str(traceback.format_exc()))
 					res[x]='failed'
+					sess.rollback()
+					for casename in casenames:
+						if os.path.exists(cp.cases_location+casename+'\\'+'objectmapping_replace.py') and os.path.exists(cp.cases_location+casename+'\\'+'objectmapping.py'):
+							try:
+								os.remove(cp.cases_location+casename+'\\'+'objectmapping_replace.py')
+							except:
+								so.userlog.critical('remove modifycasefile tmpfile failed, filepath:'+cp.cases_location+casename+'\\'+'objectmapping_replace.py')
+								raise Exception('remove modifycasefile tmpfile failed, filepath:'+cp.cases_location+casename+'\\'+'objectmapping_replace.py')
 			sess.commit()
 			so.userlog.info('delete acut:'+str(res))
 			self.write(str(res).replace('None','null'))
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during delete acut,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
 		finally:
 			if sess!=None:
 				sess.close()
-		
+	
+	def modifycasefile(self,acutid,acuttype,cases_ids,s):
+		casenames=[]
+		f=None
+		fr=None
+		try:
+			for case_id in cases_ids:
+				casename=s.query(Case.Name).filter(Case.ID==case_id).one()[0]
+				casenames.append(casename)
+				if not (os.path.exists(cp.cases_location+casename) and os.path.exists(cp.cases_location+casename+'\\'+'objectmapping.py')):
+					so.userlog.error('case file not found,casename:'+str(casename)+',given path:'+str(cp.cases_location+casename+'\\'+'objectmapping.py'))
+					return False,None
+				f=open(cp.cases_location+casename+'\\'+'objectmapping.py','r+')
+				fr=file(cp.cases_location+casename+'\\'+'objectmapping_replace.py','w+')
+				line=f.readline()
+				while(line!=''):
+					matchedstr=re.search(r'search\(\s*driver\s*,\s*'+str(acutid)+r'\s*,\s*(\d+)\s*\)\s*',line)
+					writeline=line
+					print "matchedstr:"+str(matchedstr)
+					if matchedstr!=None:
+						locatorid=matchedstr.groups()[0]
+						distlocator=s.query(Locator).filter(Locator.ID==locatorid).one()
+						writeline=writeline.replace(matchedstr.group(),'we(driver,"'+str(acuttype)+'",["'+str(distlocator.LocatorType.Name)+'","'+str(distlocator.Value)+'"])\n')
+						print "writeline:"+writeline
+					fr.write(writeline)
+					line=f.readline()
+				f.close()
+				fr.close()
+			return True,casenames
+		except Exception,e:
+			so.userlog.error('error occured during modifycasefile,casename:'+str(casenames[-1])+',traceback:'+str(traceback.format_exc()))
+			if f!=None:
+				f.close()
+			if fr!=None:
+				fr.close()
+			for casename in casenames:
+				if os.path.exists(cp.cases_location+casename+'\\'+'objectmapping_replace.py'):
+					try:
+						os.remove(cp.cases_location+casename+'\\'+'objectmapping_replace.py')
+					except:
+						so.userlog.critical('remove modifycasefile tmpfile failed, filepath:'+cp.cases_location+casename+'\\'+'objectmapping_replace.py')
+						raise Exception('remove modifycasefile tmpfile failed, filepath:'+cp.cases_location+casename+'\\'+'objectmapping_replace.py')
+
+
+	def replacecasefile(self,casenames):
+		for casename in casenames:
+			os.remove(cp.cases_location+casename+'\\'+'objectmapping.py')
+			os.rename(cp.cases_location+casename+'\\'+'objectmapping_replace.py',cp.cases_location+casename+'\\'+'objectmapping.py')

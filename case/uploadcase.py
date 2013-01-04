@@ -77,9 +77,12 @@ class uploadcase(tornado.web.RequestHandler):
 			f=file(mappingpath,'r')
 			rf=f.readline()
 			while(rf!=''):
-				res=re.search(r'(?<=search\(driver,)\d+,\d+(?=\))',rf)
+				res=None
+				_res=re.search(r'(?<=search\()\s*driver\s*,\s*(\d+)\s*,\s*(\d+)\s*(?=\))',rf)
+				if _res!=None and len(_res.groups())==2:
+					res=_res.groups()
 				if res!=None:
-					pair=res.group().split(',')
+					pair=[int(p) for p in res]
 					acut_locator_list.append(pair)
 				rf=f.readline()
 			f.close()

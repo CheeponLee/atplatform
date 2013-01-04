@@ -1,0 +1,249 @@
+[INFO]: 2013-01-04 15:35:35,084, get, return 8 acuts
+[INFO]: 2013-01-04 15:36:11,673, get, return 8 acuts
+[ERROR]: 2013-01-04 15:36:14,234, post, error occured during delete acut,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 198, in post
+    ids=params['ids']
+KeyError: 'ids'
+
+[ERROR]: 2013-01-04 15:36:57,793, post, error occured during delete acut,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 199, in post
+    ids=params['ids']
+KeyError: 'ids'
+
+[ERROR]: 2013-01-04 15:38:02,015, post, error occured during delete acut,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 200, in post
+    ids=params['ids']
+KeyError: 'ids'
+
+[ERROR]: 2013-01-04 15:38:23,941, post, error occured during delete acut,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 200, in post
+    ids=params['ids']
+KeyError: 'ids'
+
+[ERROR]: 2013-01-04 15:38:59,540, post, delete acut:3 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 207, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[ERROR]: 2013-01-04 15:38:59,553, post, delete acut:1 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 207, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[INFO]: 2013-01-04 15:38:59,558, post, delete acut:{'1': 'failed', '3': 'failed'}
+[ERROR]: 2013-01-04 15:39:46,078, post, delete acut:3 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 208, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[ERROR]: 2013-01-04 15:39:46,088, post, delete acut:1 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 208, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[INFO]: 2013-01-04 15:39:46,092, post, delete acut:{'1': 'failed', '3': 'failed'}
+[ERROR]: 2013-01-04 15:40:16,625, post, delete acut:3 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 209, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[ERROR]: 2013-01-04 15:40:16,631, post, delete acut:1 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 209, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[INFO]: 2013-01-04 15:40:16,634, post, delete acut:{'1': 'failed', '3': 'failed'}
+[INFO]: 2013-01-04 15:40:43,010, get, return 8 acuts
+[ERROR]: 2013-01-04 15:40:46,095, post, delete acut:3 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 209, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[ERROR]: 2013-01-04 15:40:46,124, post, delete acut:1 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 209, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[INFO]: 2013-01-04 15:40:46,131, post, delete acut:{'1': 'failed', '3': 'failed'}
+[ERROR]: 2013-01-04 15:41:20,503, post, delete acut:3 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 209, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[ERROR]: 2013-01-04 15:41:20,513, post, delete acut:1 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 209, in post
+    distacut=sess.query(ACUT).filter(ACUT.ID==int(x)).one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2190, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()
+
+[INFO]: 2013-01-04 15:41:20,519, post, delete acut:{'1': 'failed', '3': 'failed'}
+[ERROR]: 2013-01-04 15:46:02,605, post, delete acut:31 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 212, in post
+    if (flag==True):
+UnboundLocalError: local variable 'flag' referenced before assignment
+
+[INFO]: 2013-01-04 15:46:02,608, post, delete acut:{'31': 'failed'}
+[INFO]: 2013-01-04 15:46:07,454, get, return 8 acuts
+[INFO]: 2013-01-04 15:46:51,388, post, delete acut:{'31': 'failed'}
+[INFO]: 2013-01-04 15:46:57,915, get, return 8 acuts
+[ERROR]: 2013-01-04 16:10:46,017, post, delete acut:31 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 213, in post
+    distacut.delete()
+AttributeError: 'ACUT' object has no attribute 'delete'
+
+[INFO]: 2013-01-04 16:10:46,020, post, delete acut:{'31': 'failed'}
+[INFO]: 2013-01-04 16:10:49,482, get, return 8 acuts
+[INFO]: 2013-01-04 16:13:23,542, post, delete acut:{'31': 'success'}
+[INFO]: 2013-01-04 16:14:07,928, get, return 7 acuts
+[ERROR]: 2013-01-04 16:14:16,026, post, delete acut:26 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 211, in post
+    flag,casenames=self.modifycasefile(int(x),distacut.ACUTType.Name,cases_ids, sess)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 168, in __get__
+    return self.impl.get(instance_state(instance),dict_)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 453, in get
+    value = self.callable_(state, passive)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\strategies.py", line 481, in _load_for_state
+    (mapperutil.state_str(state), self.key)
+DetachedInstanceError: Parent instance <ACUT at 0x3a17940> is not bound to a Session; lazy load operation of attribute 'ACUTType' cannot proceed
+
+[INFO]: 2013-01-04 16:14:16,035, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:14:18,414, get, return 7 acuts
+[INFO]: 2013-01-04 16:14:20,654, get, return 7 acuts
+[ERROR]: 2013-01-04 16:19:36,726, modifycasefile, error occured during modifycasefile,casename:(u'test',)
+[ERROR]: 2013-01-04 16:19:36,727, post, delete acut:26 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 210, in post
+    flag,casenames=self.modifycasefile(int(x),distacut.ACUTType.Name,cases_ids, sess)
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 275, in modifycasefile
+    if os.path.exists(cp.cases_location+casename+'\\'+'objectmapping_replace.py'):
+TypeError: cannot concatenate 'str' and 'NamedTuple' objects
+
+[INFO]: 2013-01-04 16:19:36,732, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:19:37,957, get, return 7 acuts
+[INFO]: 2013-01-04 16:21:47,645, get, return 7 acuts
+[ERROR]: 2013-01-04 16:21:51,888, modifycasefile, error occured during modifycasefile,casename:(u'test',),traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 249, in modifycasefile
+    if not (os.path.exists(cp.cases_location+casename) and os.path.exists(cp.cases_location+casename+'\\'+'objectmapping.py')):
+TypeError: cannot concatenate 'str' and 'NamedTuple' objects
+
+[ERROR]: 2013-01-04 16:21:51,891, post, delete acut:26 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 210, in post
+    flag,casenames=self.modifycasefile(int(x),distacut.ACUTType.Name,cases_ids, sess)
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 275, in modifycasefile
+    if os.path.exists(cp.cases_location+casename+'\\'+'objectmapping_replace.py'):
+TypeError: cannot concatenate 'str' and 'NamedTuple' objects
+
+[INFO]: 2013-01-04 16:21:51,898, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:21:53,059, get, return 7 acuts
+[INFO]: 2013-01-04 16:23:02,573, get, return 7 acuts
+[ERROR]: 2013-01-04 16:23:06,385, modifycasefile, error occured during modifycasefile,casename:(u'test',),traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 249, in modifycasefile
+    if not (os.path.exists(cp.cases_location+casename) and os.path.exists(cp.cases_location+casename+'\\'+'objectmapping.py')):
+TypeError: cannot concatenate 'str' and 'NamedTuple' objects
+
+[ERROR]: 2013-01-04 16:23:06,391, post, delete acut:26 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 210, in post
+    flag,casenames=self.modifycasefile(int(x),distacut.ACUTType.Name,cases_ids, sess)
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 276, in modifycasefile
+    if os.path.exists(cp.cases_location+casename+'\\'+'objectmapping_replace.py'):
+TypeError: cannot concatenate 'str' and 'NamedTuple' objects
+
+[INFO]: 2013-01-04 16:23:06,400, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:23:07,657, get, return 7 acuts
+[INFO]: 2013-01-04 16:25:33,486, get, return 7 acuts
+[ERROR]: 2013-01-04 16:25:37,532, modifycasefile, case file not found,casename:test
+[INFO]: 2013-01-04 16:25:37,536, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:25:38,928, get, return 7 acuts
+[ERROR]: 2013-01-04 16:27:16,516, modifycasefile, case file not found,casename:test,given path:C:\workplace\atplatform\plan\cases\test\objectmapping.py
+[INFO]: 2013-01-04 16:27:16,519, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:32:13,346, get, return 7 acuts
+[INFO]: 2013-01-04 16:33:10,043, get, return 7 acuts
+[ERROR]: 2013-01-04 16:33:13,941, post, delete acut:26 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 213, in post
+    sess.commit()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 703, in commit
+    self.transaction.commit()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 361, in commit
+    self._prepare_impl()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 340, in _prepare_impl
+    self.session.flush()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 1718, in flush
+    self._flush(objects)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 1789, in _flush
+    flush_context.execute()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 331, in execute
+    rec.execute(self)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 475, in execute
+    uow
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\persistence.py", line 59, in save_obj
+    mapper, table, update)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\persistence.py", line 485, in _emit_update_statements
+    execute(statement, params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1449, in execute
+    params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1584, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1698, in _execute_context
+    context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1691, in _execute_context
+    context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\default.py", line 331, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Python27\lib\site-packages\MySQLdb\cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Python27\lib\site-packages\MySQLdb\connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+IntegrityError: (IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`selenium`.`locator`, CONSTRAINT `fk_LOCATOR_ACUT1` FOREIGN KEY (`ACUT_ID`) REFERENCES `acut` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE)') 'UPDATE locator SET `ACUT_ID`=%s WHERE locator.`ID` = %s' (None, 2087L)
+
+[INFO]: 2013-01-04 16:33:13,946, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:33:15,305, get, return 7 acuts
+[ERROR]: 2013-01-04 16:46:43,210, post, delete acut:26 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\acut.py", line 213, in post
+    sess.commit()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 703, in commit
+    self.transaction.commit()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 361, in commit
+    self._prepare_impl()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 340, in _prepare_impl
+    self.session.flush()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 1718, in flush
+    self._flush(objects)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\session.py", line 1789, in _flush
+    flush_context.execute()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 331, in execute
+    rec.execute(self)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 431, in execute
+    self.dependency_processor.process_deletes(uow, states)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\dependency.py", line 522, in process_deletes
+    uowcommit, False)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\dependency.py", line 567, in _synchronize
+    sync.clear(dest, self.mapper, self.prop.synchronize_pairs)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\sync.py", line 51, in clear
+    (r, mapperutil.state_str(dest))
+AssertionError: Dependency rule tried to blank-out primary key column 'acut_locator_case_rel.ACUT_ID' on instance '<ACUT_Locator_Case_rel at 0x3973e80>'
+
+[INFO]: 2013-01-04 16:46:43,216, post, delete acut:{'26': 'failed'}
+[INFO]: 2013-01-04 16:46:44,694, get, return 7 acuts
+[INFO]: 2013-01-04 17:12:04,687, post, delete acut:{'26': 'success'}
+[INFO]: 2013-01-04 17:22:28,424, get, return 7 acuts
+[INFO]: 2013-01-04 17:22:31,477, post, delete acut:{'26': 'success'}
+[INFO]: 2013-01-04 17:26:52,029, get, return 7 acuts
+[INFO]: 2013-01-04 17:26:54,157, post, delete acut:{'26': 'success'}
