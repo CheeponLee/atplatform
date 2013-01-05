@@ -171,7 +171,7 @@ class search(tornado.web.RequestHandler):
 				res=res.all()
 			s.commit()
 			for r in res:
-				returnlist.append([int(r.ID),'$$##'+r.Name,'$$##'+r.Version,'$$##'+r.ACUTType.Name,int(r.LocatorSUM),int(r.AUTSUM),'$$##'+str(r.DESC).decode('utf8')])
+				returnlist.append([int(r.ID),'$$##'+r.Name,'$$##'+r.Version,'$$##'+r.ACUTType.Name,int(r.LocatorSUM),int(r.AUTSUM),int(r.Referenced),'$$##'+str(r.DESC).decode('utf8')])
 			so.userlog.info('return '+str(len(res))+' acuts')
 			self.write(str(returnlist).replace('None','null').replace("u'$$##","'"))
 		except Exception,e:
@@ -211,8 +211,8 @@ class delete(tornado.web.RequestHandler):
 					if (flag==True):
 						sess.delete(distacut)
 						sess.commit()
-						res[x]='success'
 						self.replacecasefile(casenames)
+						res[x]='success'
 					else:
 						res[x]='failed'
 				except Exception,e:
@@ -255,12 +255,10 @@ class delete(tornado.web.RequestHandler):
 				while(line!=''):
 					matchedstr=re.search(r'search\(\s*driver\s*,\s*'+str(acutid)+r'\s*,\s*(\d+)\s*\)\s*',line)
 					writeline=line
-					print "matchedstr:"+str(matchedstr)
 					if matchedstr!=None:
 						locatorid=matchedstr.groups()[0]
 						distlocator=s.query(Locator).filter(Locator.ID==locatorid).one()
 						writeline=writeline.replace(matchedstr.group(),'we(driver,"'+str(acuttype)+'",["'+str(distlocator.LocatorType.Name)+'","'+str(distlocator.Value)+'"])\n')
-						print "writeline:"+writeline
 					fr.write(writeline)
 					line=f.readline()
 				f.close()
