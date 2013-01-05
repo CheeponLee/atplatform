@@ -291,3 +291,51 @@ AssertionError: Dependency rule tried to blank-out primary key column 'acut_loca
 [INFO]: 2013-01-05 23:54:40,588, get, return 4 auts by export
 [INFO]: 2013-01-05 23:55:08,085, get, return 4 auts by export
 [INFO]: 2013-01-05 23:55:13,720, get, return 4 auts by export
+[INFO]: 2013-01-06 00:25:17,976, get, return 4 acuts
+[INFO]: 2013-01-06 00:25:27,131, get, return 1 locators
+[INFO]: 2013-01-06 00:29:13,802, get, return 2 locators
+[INFO]: 2013-01-06 00:33:50,884, get, return 4 acuts
+[INFO]: 2013-01-06 00:34:29,221, get, return 4 acuts
+[INFO]: 2013-01-06 00:34:34,759, get, return 4 acuts
+[INFO]: 2013-01-06 00:34:36,236, get, return 2 locators
+[INFO]: 2013-01-06 00:34:37,467, get, return 2 locators
+[INFO]: 2013-01-06 00:34:48,069, post, delete locator:{'2099': 'success'}
+[INFO]: 2013-01-06 00:34:51,232, get, return 1 locators
+[INFO]: 2013-01-06 00:34:55,767, get, return 4 acuts
+[INFO]: 2013-01-06 00:37:39,959, get, return 4 acuts
+[INFO]: 2013-01-06 00:37:43,270, get, return 2 locators
+[INFO]: 2013-01-06 00:39:15,253, post, delete locator:{'2099': 'success'}
+[INFO]: 2013-01-06 00:46:56,852, get, return 2 locators
+[INFO]: 2013-01-06 00:47:02,170, post, delete locator:{'2099': 'success'}
+[INFO]: 2013-01-06 00:49:16,719, get, return 2 locators
+[ERROR]: 2013-01-06 00:49:23,003, modifycasefile, error occured during modifycasefile,casename:case_test2,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\locator.py", line 243, in modifycasefile
+    if not (os.path.exists(cp.cases_location+casename) and os.path.exists(cp.cases_location+casename+'\\'+'objectmapping.py')):
+NameError: global name 'os' is not defined
+
+[ERROR]: 2013-01-06 00:49:23,006, post, delete locator:2099 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\locator.py", line 200, in post
+    flag,casenames=self.modifycasefile(int(x),distlocator.LocatorType.Name,distlocator.Value,cases_ids, sess)
+  File "C:\workplace\atplatform\wc\httpapi\locator.py", line 268, in modifycasefile
+    if os.path.exists(cp.cases_location+casename+'\\'+'objectmapping_replace.py'):
+NameError: global name 'os' is not defined
+
+[INFO]: 2013-01-06 00:49:23,016, post, delete locator:{'2099': 'failed'}
+[INFO]: 2013-01-06 00:49:24,497, get, return 2 locators
+[INFO]: 2013-01-06 00:51:23,230, get, return 2 locators
+[ERROR]: 2013-01-06 00:51:27,500, modifycasefile, error occured during modifycasefile,casename:case_test2,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\locator.py", line 246, in modifycasefile
+    if not (os.path.exists(cp.cases_location+casename) and os.path.exists(cp.cases_location+casename+'\\'+'objectmapping.py')):
+NameError: global name 'cp' is not defined
+
+[ERROR]: 2013-01-06 00:51:27,503, post, delete locator:2099 failed,traceback:Traceback (most recent call last):
+  File "C:\workplace\atplatform\wc\httpapi\locator.py", line 203, in post
+    flag,casenames=self.modifycasefile(int(x),distlocator.LocatorType.Name,distlocator.Value,cases_ids, sess)
+  File "C:\workplace\atplatform\wc\httpapi\locator.py", line 271, in modifycasefile
+    if os.path.exists(cp.cases_location+casename+'\\'+'objectmapping_replace.py'):
+NameError: global name 'cp' is not defined
+
+[INFO]: 2013-01-06 00:51:27,513, post, delete locator:{'2099': 'failed'}
+[INFO]: 2013-01-06 00:51:28,687, get, return 2 locators
+[INFO]: 2013-01-06 00:51:56,954, get, return 2 locators
+[INFO]: 2013-01-06 00:51:59,221, post, delete locator:{'2099': 'success'}

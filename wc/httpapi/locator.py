@@ -2,10 +2,14 @@
 # -*- coding: utf-8 -*- 
 import tornado.web
 import urllib
+import os
+import re
 from atplatform.wc import sharedobject as so
+from atplatform.wc import commonparam as cp
 from atplatform.wc.mappedtable import *
 from sqlalchemy.exc import *
 from sqlalchemy import desc
+import traceback
 
 def getvalue(params,key,default=None):
 	try:
@@ -195,7 +199,7 @@ class delete(tornado.web.RequestHandler):
 					distlocator=sess.query(Locator).filter(Locator.ID==int(x)).one()
 					flag=True
 					if len(distlocator.ACUT_Locator_Case_rel)!=0:
-						cases=sess.query(ACUT_Locator_Case_rel.Case_ID).filter(ACUT_Locator_Case_rel.ACUT_ID==int(x)).group_by(ACUT_Locator_Case_rel.Case_ID)
+						cases=sess.query(ACUT_Locator_Case_rel.Case_ID).filter(ACUT_Locator_Case_rel.Locator_ID==int(x)).group_by(ACUT_Locator_Case_rel.Case_ID)
 						cases_ids=[i[0] for i in cases.all()]
 						flag,casenames=self.modifycasefile(int(x),distlocator.LocatorType.Name,distlocator.Value,cases_ids, sess)
 					if (flag==True):
@@ -229,6 +233,10 @@ class delete(tornado.web.RequestHandler):
 				sess.close()
 	
 	def modifycasefile(self,locatorid,locatortype,value,cases_ids,s):
+		print str(locatorid)
+		print str(locatortype)
+		print str(value)
+		print str(cases_ids)
 		casenames=[]
 		f=None
 		fr=None
