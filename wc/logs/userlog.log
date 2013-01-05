@@ -264,3 +264,30 @@ AssertionError: Dependency rule tried to blank-out primary key column 'acut_loca
 [INFO]: 2013-01-05 17:53:46,007, get, return 3 locators
 [INFO]: 2013-01-05 17:53:48,766, post, delete locator:{'2092': 'success'}
 [INFO]: 2013-01-05 17:53:50,931, get, return 2 locators
+[INFO]: 2013-01-05 23:31:21,408, get, return 4 auts by export
+[INFO]: 2013-01-05 23:32:50,496, get, return 4 auts by export
+[INFO]: 2013-01-05 23:32:59,681, get, return 4 auts by export
+[INFO]: 2013-01-05 23:33:47,917, get, return 4 auts by export
+[INFO]: 2013-01-05 23:33:58,418, get, return 4 auts by export
+[INFO]: 2013-01-05 23:34:11,417, get, return 4 auts by export
+[INFO]: 2013-01-05 23:34:12,816, get, return 4 auts by export
+[INFO]: 2013-01-05 23:36:44,904, get, return 4 auts by export
+[INFO]: 2013-01-05 23:36:52,846, get, return 4 auts by export
+[INFO]: 2013-01-05 23:37:41,601, get, return 4 auts by export
+[INFO]: 2013-01-05 23:37:48,367, get, return 4 auts by export
+[INFO]: 2013-01-05 23:43:26,346, get, return 4 auts by export
+[INFO]: 2013-01-05 23:43:41,085, get, return 4 auts by export
+[INFO]: 2013-01-05 23:44:14,869, get, return 4 auts by export
+[INFO]: 2013-01-05 23:44:51,009, get, return 4 auts by export
+[INFO]: 2013-01-05 23:45:34,131, get, return 4 auts by export
+[INFO]: 2013-01-05 23:46:57,042, get, return 4 auts by export
+[INFO]: 2013-01-05 23:47:36,877, get, return 4 auts by export
+[INFO]: 2013-01-05 23:48:15,540, get, return 4 auts by export
+[INFO]: 2013-01-05 23:48:29,651, get, return 4 auts by export
+[INFO]: 2013-01-05 23:48:57,243, get, return 4 auts by export
+[INFO]: 2013-01-05 23:49:23,367, get, return 4 auts by export
+[INFO]: 2013-01-05 23:51:37,124, get, return 4 auts by export
+[INFO]: 2013-01-05 23:53:39,821, get, return 4 auts by export
+[INFO]: 2013-01-05 23:54:40,588, get, return 4 auts by export
+[INFO]: 2013-01-05 23:55:08,085, get, return 4 auts by export
+[INFO]: 2013-01-05 23:55:13,720, get, return 4 auts by export
