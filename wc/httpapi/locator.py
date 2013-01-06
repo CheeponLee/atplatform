@@ -233,10 +233,6 @@ class delete(tornado.web.RequestHandler):
 				sess.close()
 	
 	def modifycasefile(self,locatorid,locatortype,value,cases_ids,s):
-		print str(locatorid)
-		print str(locatortype)
-		print str(value)
-		print str(cases_ids)
 		casenames=[]
 		f=None
 		fr=None

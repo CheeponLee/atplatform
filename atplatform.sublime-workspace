@@ -4,6 +4,90 @@
 		"selected_items":
 		[
 			[
+				"loca",
+				"locatortype	(local, instance)"
+			],
+			[
+				"locator",
+				"locatorid	(local, instance)"
+			],
+			[
+				"Lo",
+				"LocatorType"
+			],
+			[
+				"case",
+				"casename	(local, instance)"
+			],
+			[
+				"casena",
+				"casename"
+			],
+			[
+				"modif",
+				"modifycasefile"
+			],
+			[
+				"cas",
+				"casenames	(local, instance)"
+			],
+			[
+				"acu",
+				"acuttype"
+			],
+			[
+				"ACU",
+				"ACUTType"
+			],
+			[
+				"de",
+				"delete"
+			],
+			[
+				"up",
+				"upload"
+			],
+			[
+				"file",
+				"filename	(local, instance)"
+			],
+			[
+				"read",
+				"readline	(builtin, function)"
+			],
+			[
+				"map",
+				"mappingpath	(local, instance)"
+			],
+			[
+				"ca",
+				"casestatus"
+			],
+			[
+				"Case",
+				"CaseStatus"
+			],
+			[
+				"se",
+				"sess	(local, instance)"
+			],
+			[
+				"cl",
+				"close	(builtin, function)"
+			],
+			[
+				"fil",
+				"filename	(local, instance)"
+			],
+			[
+				"zip",
+				"zipfile	(imported, module)"
+			],
+			[
+				"usr",
+				"userlog"
+			],
+			[
 				"exce",
 				"exceptionpic"
 			],
@@ -38,10 +122,6 @@
 			[
 				"dur",
 				"during"
-			],
-			[
-				"case",
-				"casename	(local, instance)"
 			],
 			[
 				"runma",
@@ -88,10 +168,6 @@
 				"subquery"
 			],
 			[
-				"ACU",
-				"ACUTType_ID"
-			],
-			[
 				"ac",
 				"acut	(local, instance)"
 			],
@@ -104,16 +180,8 @@
 				"subquery"
 			],
 			[
-				"acu",
-				"acut_subq	(local, instance)"
-			],
-			[
 				"aut",
 				"aut_ids	(local, instance)"
-			],
-			[
-				"Lo",
-				"Locator"
 			],
 			[
 				"ACUT",
@@ -216,34 +284,18 @@
 	"buffers":
 	[
 		{
-			"file": "plan/server.py",
+			"file": "plan/testcasebase.py",
 			"settings":
 			{
-				"buffer_size": 23157,
+				"buffer_size": 1204,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "plan/mappedtable.py",
+			"file": "plan/runengine/execute.py",
 			"settings":
 			{
-				"buffer_size": 3401,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ls/Desktop/testcase/datadriven/excelp.py",
-			"settings":
-			{
-				"buffer_size": 330,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ls/Desktop/testcase/datadriven/datadriventest.py",
-			"settings":
-			{
-				"buffer_size": 1015,
+				"buffer_size": 1470,
 				"line_ending": "Windows"
 			}
 		}
@@ -296,40 +348,51 @@
 	},
 	"file_history":
 	[
+		"/C/workplace/atplatform/wc/httpapi/acut.py",
+		"/C/workplace/atplatform/wc/httpapi/locator.py",
+		"/C/workplace/atplatform/wc/mappedtable.py",
+		"/C/workplace/atplatform/wc/commonparam.py",
+		"/C/workplace/atplatform/case/uploadcase.py",
+		"/C/workplace/atplatform/case/commonparam.py",
+		"/C/workplace/atplatform/case/mappedtable.py",
+		"/C/workplace/atplatform/case/server.py",
+		"/C/workplace/atplatform/case/sharedobject.py",
+		"/C/workplace/atplatform/report/planresult.py",
+		"/C/workplace/atplatform/plan/mappedtable.py",
+		"/C/workplace/atplatform/case/testlogging.py",
+		"/C/workplace/atplatform/wc/testlogging.py",
+		"/C/workplace/atplatform/plan/commonparam.py",
+		"/C/workplace/atplatform/wc/sharedobject.py",
+		"/C/workplace/atplatform/wc/server.py",
+		"/C/workplace/atplatform/plan/server.py",
+		"/C/workplace/atplatform/case/__init__.py",
+		"/C/workplace/atplatform/__init__.py",
+		"/C/workplace/atplatform/plan/objectmappingbase.py",
+		"/C/Users/ls/Downloads/test.py",
+		"/C/workplace/atplatform/plan/sharedobject.py",
+		"/C/workplace/atplatform/plan/testlogging.py",
+		"/C/Users/ls/Desktop/testcase/datadriven/excelp.py",
+		"/C/Users/ls/Desktop/testcase/datadriven/datadriventest.py",
 		"/C/Users/ls/Desktop/excelp.py",
 		"/C/Users/ls/Desktop/excelp - 副本.py",
 		"/C/Users/ls/Desktop/testcase/login - 副本.py",
 		"/C/workplace/atplatform/report/mappedtable.py",
 		"/C/workplace/atplatform/report/server.py",
 		"/C/workplace/atplatform/report/receive.py",
-		"/C/workplace/atplatform/report/planresult.py",
 		"/C/workplace/atplatform/report/sharedobject.py",
 		"/C/workplace/atplatform/report/commonparam.py",
 		"/C/workplace/atplatform/report/testlogging.py",
-		"/C/workplace/atplatform/plan/server.py",
-		"/C/workplace/atplatform/wc/sharedobject.py",
-		"/C/workplace/atplatform/plan/commonparam.py",
-		"/C/workplace/atplatform/wc/commonparam.py",
-		"/C/workplace/atplatform/plan/sharedobject.py",
-		"/C/workplace/atplatform/plan/testlogging.py",
 		"/C/workplace/atplatform/plan/runengine/runqueue.py",
 		"/C/workplace/atplatform/plan/runengine/execute.py",
 		"/C/workplace/atplatform/plan/testcasebase.py",
 		"/C/workplace/atplatform/plan/plan.py",
 		"/C/workplace/atplatform/plan/runengine/exceptioncatch.py",
-		"/C/workplace/atplatform/wc/httpapi/acut.py",
 		"/C/workplace/atplatform/plan/runengine/runningmanager.py",
-		"/C/workplace/atplatform/plan/objectmappingbase.py",
 		"/C/workplace/atplatform/plan/runengine/runninginfo.py",
-		"/C/workplace/atplatform/plan/mappedtable.py",
 		"/C/workplace/atplatform/plan/redisproccess/redisconnector.py",
 		"/C/workplace/atplatform/plan/sc.py",
 		"/C/workplace/atplatform/atplatform.sublime-project",
-		"/C/workplace/atplatform/wc/testlogging.py",
-		"/C/workplace/atplatform/wc/server.py",
 		"/C/workplace/atplatform/wc/httpapi/aut.py",
-		"/C/workplace/atplatform/wc/httpapi/locator.py",
-		"/C/workplace/atplatform/wc/mappedtable.py",
 		"/C/workplace/atplatform/wc/httpapi/export.py",
 		"/C/Users/ls/Downloads/ee (2).py",
 		"/C/Users/ls/Downloads/objectmapping (2).py",
@@ -342,7 +405,6 @@
 		"/C/workplace/atplatform/wc/httpapi/__init__.py",
 		"/C/workplace/atplatform/wc/httpapi/exportsearch.py",
 		"/C/workplace/atplatform/wc/__init__.py",
-		"/C/workplace/atplatform/__init__.py",
 		"/C/workplace/atplatform/wc/httpapi/locatortype.py",
 		"/C/workplace/atplatform/wc/httpapi/acuttype.py",
 		"/C/workplace/atplatform/wc/httpapi/aut_acut_rel.py",
@@ -389,6 +451,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"shutil",
+			"print",
+			"Case",
+			"search",
+			"Locator",
+			"Loca",
+			"common",
 			"write",
 			"passed",
 			"planname",
@@ -499,91 +568,31 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "plan/server.py",
+					"file": "plan/testcasebase.py",
 					"settings":
 					{
-						"buffer_size": 23157,
+						"buffer_size": 1204,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1796,
-								1796
+								486,
+								486
 							]
 						],
 						"settings":
 						{
-							"incomplete_sync": null,
+							"incomplete_sync": true,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 450.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "plan/mappedtable.py",
-					"settings":
-					{
-						"buffer_size": 3401,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3290,
-								3290
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1125.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/ls/Desktop/testcase/datadriven/excelp.py",
-					"settings":
-					{
-						"buffer_size": 330,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								240,
-								240
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -592,30 +601,31 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/C/Users/ls/Desktop/testcase/datadriven/datadriventest.py",
+					"buffer": 1,
+					"file": "plan/runengine/execute.py",
 					"settings":
 					{
-						"buffer_size": 1015,
+						"buffer_size": 1470,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								962,
-								962
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"incomplete_sync": null,
+							"incomplete_sync": true,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 45.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

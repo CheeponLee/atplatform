@@ -339,3 +339,9 @@ NameError: global name 'cp' is not defined
 [INFO]: 2013-01-06 00:51:28,687, get, return 2 locators
 [INFO]: 2013-01-06 00:51:56,954, get, return 2 locators
 [INFO]: 2013-01-06 00:51:59,221, post, delete locator:{'2099': 'success'}
+[INFO]: 2013-01-06 09:40:42,566, get, return 1 locators
+[INFO]: 2013-01-06 09:40:42,588, get, return 1 acuts
+[INFO]: 2013-01-06 09:46:10,813, get, return 4 auts by export
+[INFO]: 2013-01-06 09:48:24,773, get, return 1 locators
+[INFO]: 2013-01-06 09:48:24,799, get, return 1 acuts
+[INFO]: 2013-01-06 09:54:12,645, get, return 4 auts by export
