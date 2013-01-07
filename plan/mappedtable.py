@@ -94,7 +94,7 @@ class  Browser_on_Platform_Status(so.Base):
 
 class  Report(so.Base):
 	__table__ = so.metadata.tables['report']
-	Plan = relationship('Plan',uselist=False,backref="Report")
+	Plan = relationship('Plan',backref=backref("Report",uselist=False))
 	ReportStatus=relationship('ReportStatus',backref="Report")
 
 	def __init__(self,Name,DESC=None):

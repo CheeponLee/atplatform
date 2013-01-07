@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 from objectmappingbase import search
+from objectmappingbase import CheckedWebElement as we
 
 driver=None
 unionmon_login_username_1_web_element=None

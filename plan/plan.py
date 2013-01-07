@@ -99,15 +99,16 @@ class plan(object):
 
 	@exceptioncatchcommon
 	def checkstatus(self):
+		finishcases=float(0)
 		if self.runningmanager==None and self.status==so.planstatus[3]:
-			finishpercent=float(100)
+			finishcases=float(len(self.plancases))
 		else:
 			if self.runningmanager==None and self.status!=so.planstatus[3]:
-				finishpercent=float(0)
+				finishcases=float(0)
 			else:
-				finishpercent=self.runningmanager.count/float(len(self.plancases))*100
+				finishcases=float(self.runningmanager.finishedworkercount)
 		if len(self.plancases)!=0:
-			return self.status,finishpercent2
+			return self.status,[finishcases,float(len(self.plancases))]
 		else:
 			return False
 
@@ -168,6 +169,10 @@ class plan(object):
 	@exceptioncatchcommon
 	def finishedtocall(self):
 		global planhandlers
+		try:
+			from atplatform.plan.mappedtable import *
+		except:
+			pass
 		if self.stopflag==True:
 			self.stopflag=False
 		else:
@@ -221,6 +226,10 @@ class plan(object):
 		
 	def __setplanstatus(self,status):
 		s=None
+		try:
+			from atplatform.plan.mappedtable import *
+		except:
+			pass
 		try:
 			s=so.Session()
 			plantmp=s.query(Plan).filter(Plan.Name==self.name).first()

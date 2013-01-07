@@ -1,0 +1,21 @@
+@charset "utf-8";
+#getreport {
+	height: 100px;
+	top: 25%;
+	position: relative;
+}
+#summarycontainer {
+	position: relative;
+	height: 250px;
+	width: 400px;
+}
+#frame {
+	height: 100%;
+}
+#leftnavi {
+	height: 100%;
+}
+#framelocation {
+	height: 100%;
+	position: static;
+}

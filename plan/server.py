@@ -17,6 +17,7 @@ import thread
 import urllib
 from atplatform.plan.redisproccess import redisconnector as rc
 import atplatform.plan.sharedobject as so
+from atplatform.plan.plan import planhandlers
 from sqlalchemy import desc
 from sqlalchemy import func
 
@@ -156,27 +157,35 @@ class excuteplan(tornado.web.RequestHandler):
 				so.planprogresslog.debug('close dbsession for plan '+str(planname)+' as error occured')
 #plan1::planinfo:planrawinfostr,2,[1347505606.092, 1347505611.092, 1347505637.824]|||workerinfo:{'case2__2012-09-13__Thursday__11.06.51__\xe4\xb8\xad\xe5\x9b\xbd\xe6\xa0\x87\xe5\x87\x86\xe6\x97\xb6\xe9\x97\xb4': ['stopped', 1347505612.917, 1347505628.089, 'success', '', ''], 'case2__2012-09-13__Thursday__11.06.53__\xe4\xb8\xad\xe5\x9b\xbd\xe6\xa0\x87\xe5\x87\x86\xe6\x97\xb6\xe9\x97\xb4': ['stopped', 1347505622.95, 1347505637.824, 'success', '', '']}
 
-#注释掉，只能从内存中查看状态 
-# class planstauts(tornado.web.RequestHandler):
-# 	def get(self,argv):
-# 		planname=None
-# 		try:
-# 			planname=self.get_argument('planname')
-# 			so.userlog.info('received planstatus of '+str(planname)+' check request')
-# 			if planname in planhandlers.keys():
-# 				try:
-# 					planstatus=planhandlers[planname].checkstatus()
-# 					self.write(planname+":"+planstatus[0]+','+str(planstatus[1])+"%")
-# 					so.userlog.info('planstatus check success')
-# 				except Exception,e:
-# 					self.write(planname+":"+"error ocurred , "+str(e))
-# 					so.userlog.error(planname+":"+"error ocurred , "+str(traceback.format_exc()))
-# 			else:
-# 				self.write(planname+":The plan does not exist!")
-# 				so.userlog.error('check failed'+planname+":not exist")
-# 		except Exception,e:
-# 			so.userlog.error('planstatus of '+str(planname)+' check failed,'+str(traceback.format_exc()))
-# 			self.write("failed")
+#只能从内存中查找plan进度
+class checkplanprogress(tornado.web.RequestHandler):
+	def get(self,argv):
+		planname=None
+		try:
+			planname=self.get_argument('planname')
+			so.userlog.info('received planstatus of '+str(planname)+' check request')
+			if planname==None:
+				so.userlog.error('planname is null')
+				self.write('planname is null')
+				return
+			if planname in planhandlers.keys():
+				try:
+					planstatus=planhandlers[planname].checkstatus()
+					if planstatus!=False:
+						self.write(planstatus[0]+','+str(planstatus[1][0])+','+str(planstatus[1][1]))
+						so.userlog.info('checkplanprogress success,planname:'+str(planname)+',result:'+str(planstatus))
+					else:
+						self.write('failed')
+						so.userlog.error(planname+":"+"error ocurred during checkplanprogress,see previous log for detailed infomation")
+				except Exception,e:
+					self.write(planname+":"+"error ocurred , "+str(e))
+					so.userlog.error(planname+":"+"error ocurred , "+str(traceback.format_exc()))
+			else:
+				self.write(planname+":The plan does not in the memory")
+				so.userlog.error('check failed,'+planname+" not in the memory")
+		except Exception,e:
+			so.userlog.error('planstatus of '+str(planname)+' check failed,'+str(traceback.format_exc()))
+			self.write("failed")
 
 class planinfo(tornado.web.RequestHandler):
 	def get(self,argv):
@@ -390,7 +399,7 @@ class getplans(tornado.web.RequestHandler):
 			planlist=[]
 			rs=[]
 			if planname==None:
-				allres=s.query(Plan).order_by(desc(func.ifnull(Plan.LastModifyTime,0)))
+				allres=s.query(Plan,Report).outerjoin(Plan.Report).order_by(desc(func.ifnull(Plan.LastModifyTime,0)))
 				if displayrange=='all':
 					rs=allres
 				else:
@@ -398,9 +407,11 @@ class getplans(tornado.web.RequestHandler):
 					rs=allres[displayrange[0]:displayrange[1]]
 				planlist.append(str(allres.count()))
 				for r in rs:
-					planlist.append(['$$##'+r.Name,'$$##'+r.PlanStatus.Name,None if r.CreateTime==None else u'$$##'+str(r.CreateTime),None if r.StartTime==None else u'$$##'+str(r.StartTime),None if r.EndTime==None else u'$$##'+str(r.EndTime),None if r.DESC==None else '$$##'+str(r.DESC).decode('utf8')])
+					planprogress=self.getplanstatus(r[0].Name)
+					print "planprogress:"+str(planprogress)
+					planlist.append(['$$##'+r[0].Name,'$$##'+r[0].PlanStatus.Name,None if r[0].CreateTime==None else u'$$##'+str(r[0].CreateTime),None if r[0].StartTime==None else u'$$##'+str(r[0].StartTime),None if r[0].EndTime==None else u'$$##'+str(r[0].EndTime),None if r[0].DESC==None else '$$##'+str(r[0].DESC).decode('utf8'),None if r[1]==None else ['$$##'+r[1].Name,'$$##'+r[1].ReportStatus.Name],planprogress])
 			else:
-				allres=s.query(Plan).filter(Plan.Name.like(planname+"%")).order_by(desc(func.ifnull(Plan.LastModifyTime,0)))
+				allres=s.query(Plan,Report).outerjoin(Plan.Report).filter(Plan.Name.like(planname+"%")).order_by(desc(func.ifnull(Plan.LastModifyTime,0)))
 				if displayrange=='all':
 					rs=allres
 				else:
@@ -408,7 +419,9 @@ class getplans(tornado.web.RequestHandler):
 					rs=allres[displayrange[0]:displayrange[1]]
 				planlist.append(str(allres.count()))
 				for r in rs:
-					planlist.append(['$$##'+r.Name,'$$##'+r.PlanStatus.Name,None if r.CreateTime==None else u'$$##'+str(r.CreateTime),None if r.StartTime==None else u'$$##'+str(r.StartTime),None if r.EndTime==None else u'$$##'+str(r.EndTime),None if r.DESC==None else '$$##'+str(r.DESC).decode('utf8')])
+					planprogress=self.getplanstatus(r[0].Name)
+					print "planprogress:"+str(planprogress)
+					planlist.append(['$$##'+r[0].Name,'$$##'+r[0].PlanStatus.Name,None if r[0].CreateTime==None else u'$$##'+str(r[0].CreateTime),None if r[0].StartTime==None else u'$$##'+str(r[0].StartTime),None if r[0].EndTime==None else u'$$##'+str(r[0].EndTime),None if r[0].DESC==None else '$$##'+str(r[0].DESC).decode('utf8'),None if r[1]==None else ['$$##'+r[1].Name,'$$##'+r[1].ReportStatus.Name],planprogress])
 			s.close()
 			so.userlog.debug('close session for getplans planname:'+str(planname)+' range:'+str(displayrange))
 			self.write(str(planlist).replace('None','null').replace("u'$$##","'"))
@@ -417,7 +430,18 @@ class getplans(tornado.web.RequestHandler):
 			if s!=None:
 				s.rollback()
 				s.close()
-			so.userlog.error('getplans('+str(status)+') failed,error occured,'+str(traceback.format_exc()))
+			so.userlog.error('getplans failed,error occured,'+str(traceback.format_exc()))
+
+	def getplanstatus(self,planname):
+		planprogress=None
+		try:
+			if planhandlers[planname]!=None:
+				status_res=planhandlers[planname].checkstatus()
+				if status_res!=False:
+					planprogress=status_res[1]
+			return planprogress
+		except:
+			return planprogress
 
 class checkplanexist(tornado.web.RequestHandler):
 	def get(self,argv):
@@ -551,7 +575,7 @@ class deletesamenamereport(tornado.web.RequestHandler):
 
 urls = [
 	('/excuteplan(.*)', excuteplan),
-	# ('/planstauts(.*)',planstauts),
+	('/checkplanprogress(.*)',checkplanprogress),
 	('/stopplans(.*)',stopplans),
 	('/stopplan(.*)',stopplan),
 	('/forcestopplan(.*)',forcestopplan),

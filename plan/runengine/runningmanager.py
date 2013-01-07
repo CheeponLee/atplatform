@@ -10,7 +10,12 @@ import atplatform.plan.sharedobject as so
 import functools
 import atplatform.plan.commonparam as cp
 import threading
+import traceback
 from atplatform.plan.runengine.runqueue import runqueue
+try:
+	from atplatform.plan.mappedtable import *
+except:
+	pass
 
 def exceptioncatchcommon(func):
 	@functools.wraps(func)
@@ -40,6 +45,7 @@ class runningmanager(object):
 		self.planhandler=None		#用来调用plan方法的句柄
 #		runninginfo.runningmanagerlist.append(self)		#添加此runningmanager对象进入runninginfo
 		self.newlock = threading.RLock()  #新建worker和停止所有worker的竞争锁
+		self.msgcontainer={}					#若driver获取到了最终结果，那么将此结果发送至结果收端
 		#thread.start_new_thread(self.gggg,())
 
 	# def gggg(self):
@@ -98,6 +104,7 @@ class runningmanager(object):
 		self.waitingqueue=[]
 		self.stopflag=False
 		self.webdrivercollection.clear()
+		self.msg={}
 
 	@exceptioncatchcommon
 	def flushrunmanager(self):
@@ -119,8 +126,11 @@ class runningmanager(object):
 		try:
 			res= queue.get(timeout=5)
 		except Exception, e:
-			res=['failed','getresultfailed','']
-			so.runmanagerlog.error('get result failed,case:'+name+',plan:'+self.planhandler.name)
+			if self.msgcontainer.has_key(name):
+				res=self.msgcontainer.pop(name)
+			else:
+				res=['failed','getresultfailed','']
+				so.runmanagerlog.error('get result failed,case:'+name+',plan:'+self.planhandler.name)
 		try:
 			self.webdrivercollection[name].quit()
 			self.webdrivercollection.pop(name)
@@ -148,7 +158,12 @@ class runningmanager(object):
 
 	def __getrunningdriver(self,name,queue):
 		try:
-			self.webdrivercollection[name]=queue.get(timeout=30)
+			msg=queue.get(timeout=30)
+			from selenium.webdriver.remote.webdriver import WebDriver as RemoteWebDriver
+			if isinstance(msg,RemoteWebDriver):
+				self.webdrivercollection[name]=msg
+			else:
+				self.msgcontainer[name]=msg
 		except Exception, e:
 			so.runmanagerlog.warning('get webdriver failed,name:'+str(name)+',plan:'+str(self.planhandler.name))
 

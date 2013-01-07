@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>获取报告</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/locator.css" rel="stylesheet" type="text/css">
+</head>
+<body onLoad="frontpage_load()">
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script src="data.js"></script>
+<script src="js/reportsummary.js"></script> 
+
+<div class="container-fluid">
+	<span class="row-fluid">
+        <span id="leftnavi" class="span2"> 
+          <!--Sidebar content-->
+          <ul class="nav nav-list" id="left">
+            <li class="nav-header"> 执行报告 </li>
+            <li class="active" id="reportsummary"> <a href="reportsummary.html" target="frame">总体概览</a> </li>
+            <li data-toggle="list" id="casesexcuteinfo"> <a href="casesexcuteinfo.html" target="frame" >用例执行情况矩阵 </a> </li>
+            <li  id="customdata"> <a href="customdata.html" target="frame">自定义数据 </a> </li>
+            <li  id="planinfo"> <a href="planinfo.html" target="frame">计划信息 </a> </li>
+            <li class="divider"></li>
+            <li  id="Introductions"><a href="introductions.html" target="frame">说明 </a></li>
+          </ul>
+        </span>
+        <span class="span10">
+            <div id="frame">
+                <iframe src="reportsummary.html" name="frame"  frameborder=0 id="framelocation" style="width:100%"/>
+            </div>
+        </span>
+    </span>
+</div>
+
+</body>
+</html>

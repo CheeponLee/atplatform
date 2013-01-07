@@ -3,7 +3,6 @@
 import functools
 import traceback
 from multiprocessing import Process,Queue,Value, Array
-import atplatform.plan.sharedobject as so
 
 def exceptioncatch(func):
 	@functools.wraps(func)
@@ -15,7 +14,12 @@ def exceptioncatch(func):
 			if len(e.args)!=2:
 				arg[-1].put(['failed',message,''])
 			else:
-				arg[-1].put(['failed',message,e.args[1]])
+				picmsg=''
+				try:
+					picmsg=str(e.args[1])
+				except:
+					pass
+				arg[-1].put(['failed',message,picmsg])
 			return
 		arg[-1].put(['success','',''])
 	return wrappedFunc

@@ -345,3 +345,24 @@ NameError: global name 'cp' is not defined
 [INFO]: 2013-01-06 09:48:24,773, get, return 1 locators
 [INFO]: 2013-01-06 09:48:24,799, get, return 1 acuts
 [INFO]: 2013-01-06 09:54:12,645, get, return 4 auts by export
+[INFO]: 2013-01-07 10:57:18,345, get, return 4 acuts
+[INFO]: 2013-01-07 10:58:31,732, get, return 4 acuts
+[INFO]: 2013-01-07 10:58:36,789, get, return 7 auts
+[INFO]: 2013-01-07 10:59:28,157, get, return 7 auts
+[INFO]: 2013-01-07 10:59:44,404, get, return 1 locators
+[INFO]: 2013-01-07 11:24:01,625, get, return 1 locators
+[INFO]: 2013-01-07 14:23:03,805, get, return 4 acuts
+[INFO]: 2013-01-07 15:50:20,500, get, return 4 acuts
+[INFO]: 2013-01-07 15:50:46,839, get, return 7 auts
+[INFO]: 2013-01-07 15:50:49,482, get, return 4 acuts
+[INFO]: 2013-01-07 15:50:51,572, get, return 1 locators
+[INFO]: 2013-01-07 16:30:25,306, get, return 7 auts
+[INFO]: 2013-01-07 16:30:27,348, get, return 4 acuts
+[INFO]: 2013-01-07 16:35:53,778, get, return 7 auts
+[INFO]: 2013-01-07 16:37:01,482, get, return 7 auts
+[INFO]: 2013-01-07 16:37:19,733, get, return 7 auts
+[INFO]: 2013-01-07 16:37:21,595, get, return 4 acuts
+[INFO]: 2013-01-07 16:37:23,539, get, return 1 locators
+[INFO]: 2013-01-07 16:37:26,170, get, return 4 auts by export
+[INFO]: 2013-01-07 16:41:46,289, get, return 7 auts
+[INFO]: 2013-01-07 16:48:32,479, get, return 1 locators
