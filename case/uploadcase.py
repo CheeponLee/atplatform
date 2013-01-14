@@ -27,7 +27,6 @@ class uploadcase(tornado.web.RequestHandler):
 			data=urllib.unquote(self.request.body)
 			filepath=re.search('(?<=path.\r\n\r\n).*(?=\r\n)',data).group()
 			filename=re.search('(?<=name.\r\n\r\n).*(?=\r\n)',data).group()
-			print filepath,filename
 			if zipfile.is_zipfile(filepath):
 				zipf=zipfile.ZipFile(filepath)
 				os.mkdir(cp.tmpdir+tmpdirname)
@@ -111,6 +110,11 @@ class uploadcase(tornado.web.RequestHandler):
 					sess.add(rel)
 				shutil.copytree(cp.tmpdir+tmpdirname+'/'+ca,cp.casesdir+ca)
 				sess.commit()
+				if not os.path.exists(cp.tmpdir+tmpdirname+'/'+ca+'/__init__.py'):
+					so.userlog.warning('the upload case:'+ca+' has no __init__.py file,adding it')
+					fi=file(cp.tmpdir+tmpdirname+'/'+ca+'/__init__.py','w+')
+					fi.close()
+					so.userlog.info('the upload case:'+ca+' has no __init__.py file,has added that file')
 				return True
 			else:
 				return False
