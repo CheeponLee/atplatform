@@ -704,7 +704,10 @@
 						"settings":
 						{
 							"incomplete_sync": null,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 90.0,
@@ -724,8 +727,8 @@
 						"selection":
 						[
 							[
-								1808,
-								1808
+								1434,
+								1434
 							]
 						],
 						"settings":

@@ -1,0 +1,57 @@
+[0.001][INFO]:      ChromeDriver 23.0.1240.0 C:\workplace\case\chromedriver.exe
+[0.485][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chromeOptions": {
+      "args": [  ],
+      "binary": "",
+      "extensions": [  ]
+   },
+   "javascriptEnabled": true,
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.486][INFO]:      Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --enable-logging --log-level=1 --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --ignore-certificate-errors about:blank
+[1.002][INFO]:      Connected to Chrome successfully. Version: 23.0.1271.97
+[1.034][FINE]:      Command received (/session/6c429887e5281e183ab3748850830fd9)
+[1.034][FINE]:      Command finished (/session/6c429887e5281e183ab3748850830fd9) with response {
+   "sessionId": "6c429887e5281e183ab3748850830fd9",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "23.0.1240.0",
+      "chrome.nativeEvents": false,
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "windows",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "23.0.1271.97",
+      "webStorageEnabled": true
+   }
+}
+
+[1.120][FINE]:      Command received (/session/6c429887e5281e183ab3748850830fd9/url) with params {
+   "sessionId": "6c429887e5281e183ab3748850830fd9",
+   "url": "http://baidu.com"
+}
+
+[1.120][FINER]:     Waiting for all views to stop loading...
+[1.130][FINER]:     Done waiting for all views to stop loading
+[1.250][FINER]:     Waiting for all views to stop loading...
+[1.887][FINER]:     Done waiting for all views to stop loading
+[1.887][FINE]:      Command finished (/session/6c429887e5281e183ab3748850830fd9/url) with response {
+   "sessionId": "6c429887e5281e183ab3748850830fd9",
+   "status": 0,
+   "value": {
+
+   }
+}
+
