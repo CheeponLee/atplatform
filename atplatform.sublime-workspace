@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"has",
+				"has_key"
+			],
+			[
+				"is",
+				"isinstance	(builtin, function)"
+			],
+			[
+				"exce",
+				"except	(keyword, instance)"
+			],
+			[
+				"gl",
+				"globals	(builtin, function)"
+			],
+			[
+				"chec",
+				"checkstatus"
+			],
+			[
 				"loca",
 				"locatortype	(local, instance)"
 			],
@@ -86,10 +106,6 @@
 			[
 				"usr",
 				"userlog"
-			],
-			[
-				"exce",
-				"exceptionpic"
 			],
 			[
 				"res",
@@ -284,18 +300,34 @@
 	"buffers":
 	[
 		{
-			"file": "plan/testcasebase.py",
+			"file": "case/server.py",
 			"settings":
 			{
-				"buffer_size": 1204,
+				"buffer_size": 743,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "plan/runengine/execute.py",
+			"file": "case/uploadcase.py",
 			"settings":
 			{
-				"buffer_size": 1470,
+				"buffer_size": 4672,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "case/httpapi/case.py",
+			"settings":
+			{
+				"buffer_size": 2664,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "case/mappedtable.py",
+			"settings":
+			{
+				"buffer_size": 1808,
 				"line_ending": "Windows"
 			}
 		}
@@ -348,6 +380,17 @@
 	},
 	"file_history":
 	[
+		"/C/workplace/atplatform/plan/mappedtable.py",
+		"/C/workplace/atplatform/plan/server.py",
+		"/C/workplace/atplatform/plan/plan.py",
+		"/C/workplace/atplatform/plan/runengine/runningmanager.py",
+		"/C/workplace/atplatform/plan/sharedobject.py",
+		"/C/workplace/atplatform/plan/runengine/execute.py",
+		"/C/workplace/atplatform/plan/runengine/runqueue.py",
+		"/C/workplace/atplatform/plan/runengine/exceptioncatch.py",
+		"/C/Users/ls/Desktop/test.py",
+		"/C/workplace/atplatform/plan/testcasebase.py",
+		"/C/workplace/atplatform/plan/objectmappingbase.py",
 		"/C/workplace/atplatform/wc/httpapi/acut.py",
 		"/C/workplace/atplatform/wc/httpapi/locator.py",
 		"/C/workplace/atplatform/wc/mappedtable.py",
@@ -358,18 +401,14 @@
 		"/C/workplace/atplatform/case/server.py",
 		"/C/workplace/atplatform/case/sharedobject.py",
 		"/C/workplace/atplatform/report/planresult.py",
-		"/C/workplace/atplatform/plan/mappedtable.py",
 		"/C/workplace/atplatform/case/testlogging.py",
 		"/C/workplace/atplatform/wc/testlogging.py",
 		"/C/workplace/atplatform/plan/commonparam.py",
 		"/C/workplace/atplatform/wc/sharedobject.py",
 		"/C/workplace/atplatform/wc/server.py",
-		"/C/workplace/atplatform/plan/server.py",
 		"/C/workplace/atplatform/case/__init__.py",
 		"/C/workplace/atplatform/__init__.py",
-		"/C/workplace/atplatform/plan/objectmappingbase.py",
 		"/C/Users/ls/Downloads/test.py",
-		"/C/workplace/atplatform/plan/sharedobject.py",
 		"/C/workplace/atplatform/plan/testlogging.py",
 		"/C/Users/ls/Desktop/testcase/datadriven/excelp.py",
 		"/C/Users/ls/Desktop/testcase/datadriven/datadriventest.py",
@@ -382,12 +421,6 @@
 		"/C/workplace/atplatform/report/sharedobject.py",
 		"/C/workplace/atplatform/report/commonparam.py",
 		"/C/workplace/atplatform/report/testlogging.py",
-		"/C/workplace/atplatform/plan/runengine/runqueue.py",
-		"/C/workplace/atplatform/plan/runengine/execute.py",
-		"/C/workplace/atplatform/plan/testcasebase.py",
-		"/C/workplace/atplatform/plan/plan.py",
-		"/C/workplace/atplatform/plan/runengine/exceptioncatch.py",
-		"/C/workplace/atplatform/plan/runengine/runningmanager.py",
 		"/C/workplace/atplatform/plan/runengine/runninginfo.py",
 		"/C/workplace/atplatform/plan/redisproccess/redisconnector.py",
 		"/C/workplace/atplatform/plan/sc.py",
@@ -451,6 +484,28 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"addcase",
+			"get_relation",
+			"plancases",
+			"self.msg",
+			"force",
+			"clear",
+			"clean",
+			"__getrunningdriver",
+			"webdrivercollection",
+			"driver",
+			"finishedtocall",
+			"queue",
+			"print",
+			"queue",
+			"print",
+			"__join",
+			"__jointhread__",
+			"finishedtocall",
+			"finish",
+			"check\ncheck",
+			"/",
+			"planinfo",
 			"shutil",
 			"print",
 			"Case",
@@ -568,31 +623,31 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "plan/testcasebase.py",
+					"file": "case/server.py",
 					"settings":
 					{
-						"buffer_size": 1204,
+						"buffer_size": 743,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								486,
-								486
+								317,
+								317
 							]
 						],
 						"settings":
 						{
-							"incomplete_sync": true,
+							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -602,30 +657,87 @@
 				},
 				{
 					"buffer": 1,
-					"file": "plan/runengine/execute.py",
+					"file": "case/uploadcase.py",
 					"settings":
 					{
-						"buffer_size": 1470,
+						"buffer_size": 4672,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2845,
+								2845
 							]
 						],
 						"settings":
 						{
-							"incomplete_sync": true,
+							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "case/httpapi/case.py",
+					"settings":
+					{
+						"buffer_size": 2664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1005,
+								1005
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "case/mappedtable.py",
+					"settings":
+					{
+						"buffer_size": 1808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1808,
+								1808
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
