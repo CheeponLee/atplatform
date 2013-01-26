@@ -300,42 +300,26 @@
 	"buffers":
 	[
 		{
-			"file": "case/server.py",
+			"file": "plan/server.py",
 			"settings":
 			{
-				"buffer_size": 743,
-				"line_ending": "Windows"
+				"buffer_size": 24405,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "case/uploadcase.py",
+			"file": "plan/commonparam.py",
 			"settings":
 			{
-				"buffer_size": 4672,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "case/httpapi/case.py",
-			"settings":
-			{
-				"buffer_size": 2664,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "case/mappedtable.py",
-			"settings":
-			{
-				"buffer_size": 1808,
-				"line_ending": "Windows"
+				"buffer_size": 479,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 58.0,
+		"height": 55.0,
 		"selected_items":
 		[
 			[
@@ -380,93 +364,64 @@
 	},
 	"file_history":
 	[
-		"/C/workplace/atplatform/plan/mappedtable.py",
-		"/C/workplace/atplatform/plan/server.py",
-		"/C/workplace/atplatform/plan/plan.py",
-		"/C/workplace/atplatform/plan/runengine/runningmanager.py",
-		"/C/workplace/atplatform/plan/sharedobject.py",
-		"/C/workplace/atplatform/plan/runengine/execute.py",
-		"/C/workplace/atplatform/plan/runengine/runqueue.py",
-		"/C/workplace/atplatform/plan/runengine/exceptioncatch.py",
-		"/C/Users/ls/Desktop/test.py",
-		"/C/workplace/atplatform/plan/testcasebase.py",
-		"/C/workplace/atplatform/plan/objectmappingbase.py",
-		"/C/workplace/atplatform/wc/httpapi/acut.py",
-		"/C/workplace/atplatform/wc/httpapi/locator.py",
-		"/C/workplace/atplatform/wc/mappedtable.py",
-		"/C/workplace/atplatform/wc/commonparam.py",
-		"/C/workplace/atplatform/case/uploadcase.py",
-		"/C/workplace/atplatform/case/commonparam.py",
-		"/C/workplace/atplatform/case/mappedtable.py",
-		"/C/workplace/atplatform/case/server.py",
-		"/C/workplace/atplatform/case/sharedobject.py",
-		"/C/workplace/atplatform/report/planresult.py",
-		"/C/workplace/atplatform/case/testlogging.py",
-		"/C/workplace/atplatform/wc/testlogging.py",
-		"/C/workplace/atplatform/plan/commonparam.py",
-		"/C/workplace/atplatform/wc/sharedobject.py",
-		"/C/workplace/atplatform/wc/server.py",
-		"/C/workplace/atplatform/case/__init__.py",
-		"/C/workplace/atplatform/__init__.py",
-		"/C/Users/ls/Downloads/test.py",
-		"/C/workplace/atplatform/plan/testlogging.py",
-		"/C/Users/ls/Desktop/testcase/datadriven/excelp.py",
-		"/C/Users/ls/Desktop/testcase/datadriven/datadriventest.py",
-		"/C/Users/ls/Desktop/excelp.py",
-		"/C/Users/ls/Desktop/excelp - 副本.py",
-		"/C/Users/ls/Desktop/testcase/login - 副本.py",
-		"/C/workplace/atplatform/report/mappedtable.py",
-		"/C/workplace/atplatform/report/server.py",
-		"/C/workplace/atplatform/report/receive.py",
-		"/C/workplace/atplatform/report/sharedobject.py",
-		"/C/workplace/atplatform/report/commonparam.py",
-		"/C/workplace/atplatform/report/testlogging.py",
-		"/C/workplace/atplatform/plan/runengine/runninginfo.py",
-		"/C/workplace/atplatform/plan/redisproccess/redisconnector.py",
-		"/C/workplace/atplatform/plan/sc.py",
-		"/C/workplace/atplatform/atplatform.sublime-project",
-		"/C/workplace/atplatform/wc/httpapi/aut.py",
-		"/C/workplace/atplatform/wc/httpapi/export.py",
-		"/C/Users/ls/Downloads/ee (2).py",
-		"/C/Users/ls/Downloads/objectmapping (2).py",
-		"/C/Users/ls/Downloads/objectmapping (1).py",
-		"/C/Users/ls/Downloads/objectmapping.py",
-		"/C/Users/ls/Desktop/下载~/objctmapping.py",
-		"/C/Users/ls/Desktop/objectmapping.py",
-		"/C/Users/ls/Downloads/ee.py",
-		"/C/Users/ls/Desktop/objctmapping.py",
-		"/C/workplace/atplatform/wc/httpapi/__init__.py",
-		"/C/workplace/atplatform/wc/httpapi/exportsearch.py",
-		"/C/workplace/atplatform/wc/__init__.py",
-		"/C/workplace/atplatform/wc/httpapi/locatortype.py",
-		"/C/workplace/atplatform/wc/httpapi/acuttype.py",
-		"/C/workplace/atplatform/wc/httpapi/aut_acut_rel.py",
-		"/C/Users/ls/Desktop/pygraphviz-1.1/setup.py",
-		"/C/workplace/atplatform/wc/httpapi/aut_acut_rel",
-		"/C/workplace/atplatform/wc/httpapi/acuttype",
-		"/C/workplace/atplatform/httpapi/aut.py",
-		"/C/workplace/atplatform/server.py",
-		"/C/workplace/atplatform/sharedobject.py",
-		"/C/workplace/atplatform/mappedtable.py",
-		"/C/workplace/atplatform/testlogging.py",
-		"/C/workplace/atplatform/atplatform.sublime-workspace",
-		"/C/workplace/atplatform/commonparam.py",
-		"/C/Python27/lib/site-packages/sqlalchemy/schema.py",
-		"/C/workplace/newselenium/httpapi/aut.py",
-		"/C/workplace/newselenium/server.py",
-		"/C/workplace/newselenium/commonparam.py",
-		"/C/workplace/newselenium/sharedobject.py",
-		"/C/workplace/newselenium/testlogging.py",
-		"/C/workplace/newselenium/mappedtable.py",
-		"/C/workplace/newselenium/httpapi/__init__.py",
-		"/C/workplace/selenium/restapi/search/aut.py",
-		"/C/workplace/selenium/dbpool.py",
-		"/C/workplace/plan/sharedobject.py",
-		"/C/workplace/plan/plan.py",
-		"/C/workplace/plan/runengine/runningmanager.py",
-		"/C/workplace/plan/runengine/execute.py",
-		"/C/Users/ls/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
-		"/C/Users/ls/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap"
+		"/home/uls/.config/sublime-text-2/Packages/User/Flake8Lint.sublime-settings",
+		"/home/uls/.config/sublime-text-2/Packages/Flake8Lint/Flake8Lint.sublime-settings",
+		"/home/uls/workplace/atplatform/atplatform/case/server.py",
+		"/home/uls/workplace/atplatform/atplatform/case/uploadcase.py",
+		"/home/uls/workplace/atplatform/atplatform/case/httpapi/case.py",
+		"/home/uls/workplace/atplatform/atplatform/case/mappedtable.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/mappedtable.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/server.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/plan.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/runengine/runningmanager.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/sharedobject.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/runengine/execute.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/runengine/runqueue.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/runengine/exceptioncatch.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/testcasebase.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/objectmappingbase.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/acut.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/locator.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/mappedtable.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/commonparam.py",
+		"/home/uls/workplace/atplatform/atplatform/case/commonparam.py",
+		"/home/uls/workplace/atplatform/atplatform/case/sharedobject.py",
+		"/home/uls/workplace/atplatform/atplatform/report/planresult.py",
+		"/home/uls/workplace/atplatform/atplatform/case/testlogging.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/testlogging.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/commonparam.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/sharedobject.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/server.py",
+		"/home/uls/workplace/atplatform/atplatform/case/__init__.py",
+		"/home/uls/workplace/atplatform/atplatform/__init__.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/testlogging.py",
+		"/home/uls/workplace/atplatform/atplatform/report/mappedtable.py",
+		"/home/uls/workplace/atplatform/atplatform/report/server.py",
+		"/home/uls/workplace/atplatform/atplatform/report/receive.py",
+		"/home/uls/workplace/atplatform/atplatform/report/sharedobject.py",
+		"/home/uls/workplace/atplatform/atplatform/report/commonparam.py",
+		"/home/uls/workplace/atplatform/atplatform/report/testlogging.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/runengine/runninginfo.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/redisproccess/redisconnector.py",
+		"/home/uls/workplace/atplatform/atplatform/plan/sc.py",
+		"/home/uls/workplace/atplatform/atplatform/atplatform.sublime-project",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/aut.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/export.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/__init__.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/exportsearch.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/__init__.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/locatortype.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/acuttype.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/aut_acut_rel.py",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/aut_acut_rel",
+		"/home/uls/workplace/atplatform/atplatform/wc/httpapi/acuttype",
+		"/home/uls/workplace/atplatform/atplatform/httpapi/aut.py",
+		"/home/uls/workplace/atplatform/atplatform/server.py",
+		"/home/uls/workplace/atplatform/atplatform/sharedobject.py",
+		"/home/uls/workplace/atplatform/atplatform/mappedtable.py",
+		"/home/uls/workplace/atplatform/atplatform/testlogging.py",
+		"/home/uls/workplace/atplatform/atplatform/atplatform.sublime-workspace",
+		"/home/uls/workplace/atplatform/atplatform/commonparam.py"
 	],
 	"find":
 	{
@@ -623,124 +578,60 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "case/server.py",
+					"file": "plan/server.py",
 					"settings":
 					{
-						"buffer_size": 743,
+						"buffer_size": 24405,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								317,
-								317
+								23121,
+								23121
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 9486.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "case/uploadcase.py",
+					"file": "plan/commonparam.py",
 					"settings":
 					{
-						"buffer_size": 4672,
+						"buffer_size": 479,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2845,
-								2845
+								92,
+								107
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "case/httpapi/case.py",
-					"settings":
-					{
-						"buffer_size": 2664,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1005,
-								1005
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "case/mappedtable.py",
-					"settings":
-					{
-						"buffer_size": 1808,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1434,
-								1434
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

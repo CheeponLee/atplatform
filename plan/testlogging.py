@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*- 
 import logging
 from  atplatform.plan import sharedobject
+import os
+from  atplatform.plan import commonparam as cp
+
 def init(log_level):
 	inituserlog(log_level)
 	initadminlog(log_level)
@@ -11,7 +14,8 @@ def init(log_level):
 
 def inituserlog(log_level):
 	logger = logging.getLogger("selenium_user")
-	filehandler = logging.FileHandler("./logs/user.log")
+	touchfile(cp.home+"logs/user.log")
+	filehandler = logging.FileHandler(cp.home+"logs/user.log")
 	streamhandler = logging.StreamHandler()
 	fmt = logging.Formatter('[%(levelname)s]: %(asctime)s, %(funcName)s, %(message)s')
 	filehandler.setFormatter(fmt)
@@ -23,7 +27,8 @@ def inituserlog(log_level):
 
 def initadminlog(log_level):
 	logger = logging.getLogger("selenium_admin")
-	filehandler = logging.FileHandler("./logs/admin.log")
+	touchfile(cp.home+"logs/admin.log")
+	filehandler = logging.FileHandler(cp.home+"logs/admin.log")
 	streamhandler = logging.StreamHandler()
 	fmt = logging.Formatter('[%(levelname)s]: %(asctime)s, %(funcName)s, %(message)s')
 	filehandler.setFormatter(fmt)
@@ -35,7 +40,8 @@ def initadminlog(log_level):
 
 def initrunmanagerlog(log_level):
 	logger = logging.getLogger("selenium_runmanager")
-	filehandler = logging.FileHandler("./logs/runmanager.log")
+	touchfile(cp.home+"logs/runmanager.log")
+	filehandler = logging.FileHandler(cp.home+"logs/runmanager.log")
 	streamhandler = logging.StreamHandler()
 	fmt = logging.Formatter('[%(levelname)s]: %(asctime)s, %(funcName)s, %(message)s')
 	filehandler.setFormatter(fmt)
@@ -47,7 +53,8 @@ def initrunmanagerlog(log_level):
 
 def initplanprogresslog(log_level):
 	logger = logging.getLogger("selenium_planprogress")
-	filehandler = logging.FileHandler("./logs/planprogress.log")
+	touchfile(cp.home+"logs/planprogress.log")
+	filehandler = logging.FileHandler(cp.home+"logs/planprogress.log")
 	streamhandler = logging.StreamHandler()
 	fmt = logging.Formatter('[%(levelname)s]: %(asctime)s, %(funcName)s, %(message)s')
 	filehandler.setFormatter(fmt)
@@ -59,7 +66,8 @@ def initplanprogresslog(log_level):
 
 def initcaseexecuteerrorlog(log_level):
 	logger = logging.getLogger("selenium_caseexecuteerror")
-	filehandler = logging.FileHandler("./logs/caseexecuteerror.log")
+	touchfile(cp.home+"logs/caseexecuteerror.log")
+	filehandler = logging.FileHandler(cp.home+"logs/caseexecuteerror.log")
 	streamhandler = logging.StreamHandler()
 	fmt = logging.Formatter('[%(levelname)s]: %(asctime)s, %(funcName)s, %(message)s')
 	filehandler.setFormatter(fmt)
@@ -71,3 +79,7 @@ def initcaseexecuteerrorlog(log_level):
 
 def shutdownlog():
 	logging.shutdown()
+
+def touchfile(filename):
+	if not os.path.exists(filename):
+		file(filename,'w').close()

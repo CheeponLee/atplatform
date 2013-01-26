@@ -5,13 +5,14 @@ import traceback
 import logging
 import tornado.web
 from lxml import etree
+import sys
+sys.path.append('/home/uls/workplace/atplatform/')
 from atplatform.plan.runengine.runningmanager import *
 from atplatform.plan.runengine import execute
 import time
 from sqlalchemy.exc import *
 from atplatform.plan.runengine import runninginfo
 from atplatform.plan import testlogging
-import sys
 reload(sys)
 import thread
 import urllib
@@ -572,8 +573,11 @@ class deletesamenamereport(tornado.web.RequestHandler):
 			self.write('failed')
 			so.userlog.error('process deletesamenamereport('+str(reportname)+') request failed,error occured,'+str(traceback.format_exc()))
 
+class StaticWWWHandler(tornado.web.StaticFileHandler):
+	pass
 
 urls = [
+	('/www/(.*)',StaticWWWHandler,dict(path=cp.home+'static/')),
 	('/excuteplan(.*)', excuteplan),
 	('/checkplanprogress(.*)',checkplanprogress),
 	('/stopplans(.*)',stopplans),
@@ -617,5 +621,5 @@ if __name__ == "__main__":
 		if s!=None:
 			s.rollback()
 			s.close()
-		# print traceback.format_exc()
+		print traceback.format_exc()
 		so.adminlog.critical('server start failed,error ocurred:',str(traceback.format_exc()))

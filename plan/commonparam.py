@@ -1,7 +1,7 @@
 #! /usr/bin/env python 
 # -*- coding: utf-8 -*- 
-home='C:\\workplace\\exceptionpic\\plan\\'
-exceptionpicdir='C:\\workplace\\exceptionpic\\'
+home='/home/uls/workplace/atplatform/atplatform/plan/'
+exceptionpicdir='/home/uls/workplace/atplatform/atplatform/exceptionpic/'
 mqhost="localhost"
 maxpush=5
 maxconcurrent=2

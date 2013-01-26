@@ -3,9 +3,11 @@
 import tornado.ioloop
 import tornado.web
 import sys
+sys.path.append('/home/uls/workplace/atplatform/')
 reload(sys)
 import atplatform.wc.sharedobject as so
 from atplatform.wc import testlogging
+from atplatform.wc import commonparam as cp
 
 if __name__ == "__main__":
 	so.Init()
@@ -33,8 +35,14 @@ class checkplanexist(tornado.web.RequestHandler):
 			info=u"planname is null"
 		s.close()
 		self.write(str(info).replace('None','null').replace("u'","'"))
+class StaticWWWHandler(tornado.web.StaticFileHandler):
+	def initialize(self, path, default_filename=None):
+		print path
+		self.root = os.path.abspath(path) + os.path.sep
+		self.default_filename = default_filename
 
 urls = [
+	('/www/(.*)',StaticWWWHandler,dict(path=cp.home+'static/')),
 	('/aut.add(.*)', aut.add),
 	('/aut.modify(.*)', aut.modify),
 	('/aut.search(.*)', aut.search),

@@ -3,7 +3,7 @@
 import os
 import sys
 reload(sys)
-sys.path.append('/home/uls/software')
+sys.path.append('/home/uls/workplace/atplatform/')
 
 from atplatform.case import commonparam as cp
 import tornado.ioloop
@@ -21,7 +21,14 @@ from atplatform.case.testlogging import *
 sys.setdefaultencoding('utf8')
 from atplatform.case.uploadcase import uploadcase
 
+class StaticWWWHandler(tornado.web.StaticFileHandler):
+	def initialize(self, path, default_filename=None):
+		print path
+		self.root = os.path.abspath(path) + os.path.sep
+		self.default_filename = default_filename
+
 urls = [
+	('/www/(.*)',StaticWWWHandler,dict(path=cp.home+'static/')),
 	('/uploadcase(.*)', uploadcase)
 ]
 

@@ -1,7 +1,6 @@
 #! /usr/bin/env python 
 # -*- coding: utf-8 -*- 
 from multiprocessing import Process,Queue
-import commonparam as cp
 from atplatform.plan.runengine.exceptioncatch import *
 from atplatform.plan.commonparam import *
 import time

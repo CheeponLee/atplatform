@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*- 
 import logging
 from  atplatform.report import sharedobject
+import os
+from  atplatform.report import commonparam as cp
+
 def init(log_level):
 	inituserlog(log_level)
 	initadminlog(log_level)
@@ -45,3 +48,7 @@ def initprocesslog(log_level):
 
 def shutdownlog():
 	logging.shutdown()
+
+def touchfile(filename):
+	if not os.path.exists(filename):
+		file(filename,'w').close()

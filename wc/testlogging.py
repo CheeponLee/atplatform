@@ -2,13 +2,17 @@
 # -*- coding: utf-8 -*- 
 import logging
 from  atplatform.wc import sharedobject
+import os
+from  atplatform.wc import commonparam as cp
+
 def init():
 	inituserlog()
 	initadminlog()
 
 def inituserlog():
 	logger = logging.getLogger("selenium_user")
-	filehandler = logging.FileHandler("./logs/userlog.log")
+	touchfile(cp.home+"logs/user.log")
+	filehandler = logging.FileHandler(cp.home+"logs/user.log")
 	streamhandler = logging.StreamHandler()
 	fmt = logging.Formatter('[%(levelname)s]: %(asctime)s, %(funcName)s, %(message)s')
 	filehandler.setFormatter(fmt)
@@ -20,7 +24,8 @@ def inituserlog():
 
 def initadminlog():
 	logger = logging.getLogger("selenium_admin")
-	filehandler = logging.FileHandler("./logs/adminlog.log")
+	touchfile(cp.home+"logs/admin.log")
+	filehandler = logging.FileHandler(cp.home+"logs/admin.log")
 	streamhandler = logging.StreamHandler()
 	fmt = logging.Formatter('[%(levelname)s]: %(asctime)s, %(funcName)s, %(message)s')
 	filehandler.setFormatter(fmt)
@@ -32,3 +37,7 @@ def initadminlog():
 
 def shutdownlog():
 	logging.shutdown()
+
+def touchfile(filename):
+	if not os.path.exists(filename):
+		file(filename,'w').close()
