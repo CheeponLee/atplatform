@@ -7,6 +7,7 @@ import random
 from atplatform.plan.runengine import execute
 import thread
 import atplatform.plan.sharedobject as so
+import traceback
 
 class runqueue:
 	globallock=threading.RLock()
@@ -56,7 +57,7 @@ class runqueue:
 
 	@staticmethod
 	def newworker(runmanagerinstance,casename,config,name,q):
-		p=execute.run(casename,config,name,q)
+		p=execute.run(casename,config,name,q,planname=runmanagerinstance.planhandler.name)
 		runmanagerinstance.runningworker[name]=p
 		thread.start_new_thread(runmanagerinstance.__jointhread__,(name,p,q))		#开新线程__jointhread__监视worker执行结束，并执行动作
 		runmanagerinstance.workerinfo[name]=[so.workerstatus[1],time.time(),'','','','']
@@ -72,7 +73,7 @@ class runqueue:
 			runqueue.globallock.release()
 			return True
 		except Exception,e:
-			so.runmanagerlog.error('popqueue failed plan:'+str(planname))
+			so.runmanagerlog.error('popqueue failed plan:'+str(planname)+',traceback:'+str(traceback.format_exc()))
 			return False
 
 	@staticmethod

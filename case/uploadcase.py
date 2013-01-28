@@ -41,6 +41,7 @@ class uploadcase(tornado.web.RequestHandler):
 					for ca in dirlist:
 						res=self.addcase(tmpdirname,ca,sess)
 						if res==True:
+							
 							passedcases.append(ca)
 							so.userlog.info('success add case,casename:'+str(ca))
 				shutil.rmtree(cp.tmpdir+tmpdirname)

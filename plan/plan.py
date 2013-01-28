@@ -10,7 +10,9 @@ import functools
 import thread
 import sched
 import time
+import os
 import pika
+import shutil
 import atplatform.plan.commonparam as cp
 import atplatform.plan.sharedobject as so
 import re
@@ -179,6 +181,12 @@ class plan(object):
 			self.plantimeinfo[2]=time.time()
 			so.planprogresslog.debug('plan:'+self.name+' has finish and send result')
 			res=self.__senresult()
+			if os.exists(cp.exctmpdir+str(planname)):
+				try:
+					shutil.rmtree(cp.exctmpdir+str(planname))
+				except:
+					so.runmanagerlog.critical('clean tmp dir error,planname:'+str(self.name))
+					raise Exception('delete tmp dir failed')
 			if res==True:
 				so.planprogresslog.debug('plan:'+self.name+' has send result')
 			else:
@@ -196,6 +204,7 @@ class plan(object):
 			except Exception,e:
 				if s!=None:
 					s.close()
+				so.runmanagerlog.error('error occured during call finishedtocall,planname:'+self.name+',traceback:'+traceback.format_exc())
 				raise e
 		self.status=so.planstatus[3]
 		self.__setplanstatus(so.planstatus[3])
