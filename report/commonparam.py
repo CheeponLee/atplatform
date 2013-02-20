@@ -1,11 +1,11 @@
 #! /usr/bin/env python 
 # -*- coding: utf-8 -*- 
 mqhost="localhost"
-exceptionpiclocation="C:\\workplace\\exceptionpic\\"
-reporthome="C:\\workplace\\atplatform\\report\\"
-resultslocation=reporthome+"static\\results\\"
-resultstmplocation=reporthome+"temp\\"
-basereportlocation=reporthome+"basereport\\"
+exceptionpiclocation="/home/uls/workplace/atplatform/atplatform/exceptionpic/"
+reporthome="/home/uls/workplace/atplatform/atplatform/report/"
+resultslocation=reporthome+"static/results/"
+resultstmplocation=reporthome+"temp/"
+basereportlocation=reporthome+"basereport/"
 
 # db
 Connect_string='mysql+mysqldb://root:root@127.0.0.1:3306/selenium?charset=utf8'

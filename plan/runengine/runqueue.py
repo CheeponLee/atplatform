@@ -48,7 +48,7 @@ class runqueue:
 					executecaseinfo=runqueue.queue[executeplan][1].pop(0)	#取出选定的计划中的第一个case
 					if len(runqueue.queue[executeplan][1])==0:
 						runqueue.queue.pop(executeplan)		#如果10秒内没有新的case推送到runqueue中，则此plan在runqueue中删除
-					runqueue.newworker(executecaseinfo[1],executecaseinfo[2],executecaseinfo[3],executecaseinfo[0],executecaseinfo[4])
+					runqueue.newworker(executecaseinfo[1],executecaseinfo[2],executecaseinfo[3],executecaseinfo[0],executecaseinfo[4],executecaseinfo[5])
 					so.runmanagerlog.info('push to runqueue to excute,plan:'+str(executecaseinfo[1].planhandler.name)+',case:'+str(executecaseinfo[0]))
 					runqueue.runningqueuelength=runqueue.runningqueuelength+1
 					so.runmanagerlog.info('runningqueuelength +1,length:'+str(runqueue.runningqueuelength)+' from plan:'+str(executecaseinfo[1].planhandler.name))
@@ -56,11 +56,11 @@ class runqueue:
 			runqueue.globallock.release()
 
 	@staticmethod
-	def newworker(runmanagerinstance,casename,config,name,q):
-		p=execute.run(casename,config,name,q,planname=runmanagerinstance.planhandler.name)
+	def newworker(runmanagerinstance,casename,config,name,q,dataq):
+		p=execute.run(casename,config,name,q,dataq,planname=runmanagerinstance.planhandler.name)
 		runmanagerinstance.runningworker[name]=p
-		thread.start_new_thread(runmanagerinstance.__jointhread__,(name,p,q))		#开新线程__jointhread__监视worker执行结束，并执行动作
-		runmanagerinstance.workerinfo[name]=[so.workerstatus[1],time.time(),'','','','']
+		thread.start_new_thread(runmanagerinstance.__jointhread__,(name,p,q,dataq))		#开新线程__jointhread__监视worker执行结束，并执行动作
+		runmanagerinstance.workerinfo[name]=[so.workerstatus[1],time.time(),'','','','',{}]
 		runmanagerinstance.pushqueuecount=runmanagerinstance.pushqueuecount+1
 		so.runmanagerlog.info('pushqueuecount +1,length:'+str(runmanagerinstance.pushqueuecount)+',plan:'+str(runmanagerinstance.planhandler.name))
 

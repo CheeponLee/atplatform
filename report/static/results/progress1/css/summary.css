@@ -1,4 +1,0 @@
-@charset "utf-8";
-/* CSS Document */
-
-p { white-space: nowrap; /* IE6 需要定义宽度 */ overflow: hidden; -o-text-overflow: ellipsis; /* Opera */ text-overflow: ellipsis; /* IE, Safari (WebKit) */ }

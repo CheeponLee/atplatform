@@ -46,6 +46,7 @@ class runningmanager(object):
 #		runninginfo.runningmanagerlist.append(self)		#添加此runningmanager对象进入runninginfo
 		self.newlock = threading.RLock()  #新建worker和停止所有worker的竞争锁
 		self.msgcontainer={}					#若driver获取到了最终结果，那么将此结果发送至结果收端
+		self.datautil_data={}				#standard datautil data
 		#thread.start_new_thread(self.gggg,())
 
 	# def gggg(self):
@@ -58,17 +59,18 @@ class runningmanager(object):
 		self.newlock.acquire()
 		if self.stopflag!=True:
 			q=Queue()
+			dataq=Queue()
 			name=(casename+"__"+time.strftime("%Y-%m-%d__%H.%M.%S", time.localtime()).replace(':','.')).decode('gbk').encode('utf8')
-			self.workerinfo[name]=[so.workerstatus[0],0,0,'','','']
+			self.workerinfo[name]=[so.workerstatus[0],0,0,'','','',{}]
 			if self.pushqueuecount<cp.maxpush:
 				#_dict=['planname',(name,runmanagerinstance_self,casename.config.q)]
-				_dict=[self.planhandler.name,(name,self,casename,config,q)]
+				_dict=[self.planhandler.name,(name,self,casename,config,q,dataq)]
 				runqueue.push(_dict,self)
 				so.runmanagerlog.debug('push case:'+casename+' in config:'+str(config)+' to manager runlist,planname:'+self.planhandler.name)
 			else:
-				self.waitingqueue.append([name,casename,config,q])  #存入等待队列，不会进行push
+				self.waitingqueue.append([name,casename,config,q,dataq])  #存入等待队列，不会进行push
 				so.runmanagerlog.debug('push case:'+casename+' in config:'+str(config)+' to manager waitlist,planname:'+self.planhandler.name)
-				self.workerinfo[name]=[so.workerstatus[4],0,0,'','','']
+				self.workerinfo[name]=[so.workerstatus[4],0,0,'','','',{}]
 			self.newlock.release()
 			time.sleep(1)	#单个plan最短push间隔至少1秒
 			return name
@@ -115,8 +117,9 @@ class runningmanager(object):
 		so.runmanagerlog.info('runmanager has been flushed,plan:'+self.planhandler.name)
 
 	@exceptioncatchcommon
-	def __jointhread__(self,name,p,queue):
+	def __jointhread__(self,name,p,queue,dataq):
 		thread.start_new_thread(self.__getrunningdriver,(name,queue))
+		thread.start_new_thread(self.__getdatautil_data,(name,dataq))
 		p.join()
 		so.runmanagerlog.info('one case thread has finished,case:'+name+',plan:'+self.planhandler.name)
 		if self.stoppedworker.count(name)==0:
@@ -167,9 +170,35 @@ class runningmanager(object):
 		except Exception, e:
 			so.runmanagerlog.warning('get webdriver failed,name:'+str(name)+',plan:'+str(self.planhandler.name))
 
+	def __getdatautil_data(self,name,dataq):
+		try:
+			while True:
+				msg=dataq.get(timeout=3600)				#jianglaikeneng gai
+				if msg=='*stop_receive*':
+					break
+				else:
+					msg=eval(msg)
+					if msg[0]=='pic':
+						if self.workerinfo[name][-1].has_key('pic'):
+							self.workerinfo[name][-1]['pic'].append(msg[1])
+						else:
+							self.workerinfo[name][-1]['pic']=[msg[1]]
+					elif msg[0]=='text':
+						if self.workerinfo[name][-1].has_key('text'):
+							self.workerinfo[name][-1]['text'].append(msg[1])
+						else:
+							self.workerinfo[name][-1]['text']=[msg[1]]
+					elif msg[0]=='file':
+						if self.workerinfo[name][-1].has_key('file'):
+							self.workerinfo[name][-1]['file'].append(msg[1])
+						else:
+							self.workerinfo[name][-1]['file']=[msg[1]]
+		except Exception, e:
+			so.runmanagerlog.warning('get util_data failed,name:'+str(name)+',plan:'+str(self.planhandler.name))
+
 	@exceptioncatchcommon
 	def setworkerinfo(self,name,res):
-		self.workerinfo[name][3:]=res
+		self.workerinfo[name][3:-1]=res
 		self.workerinfo[name][2]=time.time()
 		self.finishedworkercount=self.finishedworkercount+1
 		so.runmanagerlog.info('finishedworkercount +1 ,case:'+str(name)+',plan:'+str(self.planhandler.name))

@@ -20,6 +20,12 @@ def getvalue(params,key,default=None):
 	except:
 		return default
 
+def _strip(_str):
+	if _str!=None:
+		return _str.strip()
+	else:
+		return None
+
 class add(tornado.web.RequestHandler):
 	def post(self,argv):
 		sess=None
@@ -30,9 +36,12 @@ class add(tornado.web.RequestHandler):
 			locatortype=getvalue(params,'type','')
 			acutid=getvalue(params,'acutid','')
 			DESC=getvalue(params,'DESC')
-			if value.strip()=='' or locatortype.strip()=='' or acutid=='':
+			if value=='' or locatortype.strip()=='' or acutid=='':
 				self.write('failed,key params not complete')
 				so.userlog.error('key params not complete')
+				return
+			vali_res=self.validation(acutid,value,DESC)
+			if vali_res!='pass':
 				return
 			sess=so.Session()
 			acut=sess.query(ACUT).filter(ACUT.ID==int(acutid)).one()
@@ -51,13 +60,32 @@ class add(tornado.web.RequestHandler):
 				sess.rollback()
 			self.write('failed,params conflict')
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during add locator,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
 		finally:
 			if sess!=None:
 				sess.close()
+
+	def validation(self,acutid,value,DESC):
+		if acutid==None:
+			self.write('failed,acut not given')
+			so.userlog.error('acut not given')
+			return 'not pass'
+		if value==None or value=='':
+			self.write('failed,value is null')
+			so.userlog.error('value is None')
+			return 'not pass'
+		if len(value)>100:
+			self.write('failed,value too long')
+			so.userlog.error('value too long')
+			return 'not pass'
+		if DESC!=None and len(DESC)>200:
+			self.write('failed,DESC too long')
+			so.userlog.error('DESC too long')
+			return 'not pass'
+		return 'pass'
 
 class modify(tornado.web.RequestHandler):
 	def post(self,argv):
@@ -66,14 +94,13 @@ class modify(tornado.web.RequestHandler):
 			data=urllib.unquote(self.request.body)
 			params=dict([x.split('=') for x in data.split('&')])
 			_id=getvalue(params,'id')
-			if _id==None:
-				so.userlog.error('id is not given')
-				self.write("failed,id is not given")
-				return
 			value=getvalue(params,'value',None)
 			locatortype=getvalue(params,'type',None)
 			acutid=getvalue(params,'acutid',None)
 			DESC=getvalue(params,'DESC',None)
+			vali_res=self.validation(_id,value,DESC)
+			if vali_res!='pass':
+				return
 			sess=so.Session()
 			locators=sess.query(Locator).filter(Locator.ID==_id).all()
 			if len(locators)==0:
@@ -81,7 +108,7 @@ class modify(tornado.web.RequestHandler):
 				self.write(failed,'locator not exist')
 				return
 			locator=locators[0]
-			if str(value).strip()=='' or str(locatortype).strip()=='' or str(acutid).strip()=='':
+			if str(value)=='' or str(locatortype).strip()=='' or str(acutid).strip()=='':
 				so.userlog.error('cannot set key property empty')
 				self.write('failed,cannot set key property empty')
 				return
@@ -108,13 +135,32 @@ class modify(tornado.web.RequestHandler):
 				sess.rollback()
 			self.write('failed,params conflict')
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during modify locator,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
 		finally:
 			if sess!=None:
 				sess.close()
+
+	def validation(self,_id,value,DESC):
+		if _id==None:
+			self.write('failed,locatorid is null')
+			so.userlog.error('locatorid is None')
+			return 'not pass'
+		if value==None or value=='':
+			self.write('failed,value is null')
+			so.userlog.error('value is None')
+			return 'not pass'
+		if len(value)>100:
+			self.write('failed,value too long')
+			so.userlog.error('value too long')
+			return 'not pass'
+		if DESC!=None and len(DESC)>200:
+			self.write('failed,DESC too long')
+			so.userlog.error('DESC too long')
+			return 'not pass'
+		return 'pass'
 
 #http://localhost:774/locator.search?value=95&type=&value_searchstyle=regexp&range=1,20
 class search(tornado.web.RequestHandler):
@@ -191,6 +237,10 @@ class delete(tornado.web.RequestHandler):
 			params=dict(t.split('=') for t in [i for i in data.split('&')])
 			ids=params['deleteids']
 			res={}
+			if ids==None or ids.strip()=='':
+				self.write(failed)
+				so.userlog.error('locatorid not given for deleting')
+				return
 			sess=so.Session()
 			for x in ids.split(','):
 				casenames=[]

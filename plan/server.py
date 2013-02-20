@@ -21,6 +21,8 @@ import atplatform.plan.sharedobject as so
 from atplatform.plan.plan import planhandlers
 from sqlalchemy import desc
 from sqlalchemy import func
+import os
+import shutil
 
 if __name__ == "__main__":
 	so.Init()
@@ -293,6 +295,8 @@ class stopplan(tornado.web.RequestHandler):
 					so.userlog.debug('close db session for stop plan '+str(planname))
 					so.userlog.info('stop plan '+str(planname)+' success')
 					return str(planname)+":The plan does not exist!"
+			if os.path.exists(os.path.join(cp.exctmpdir,planname)):
+				shutil.rmtree(os.path.join(cp.exctmpdir,planname))
 		except Exception,e:
 			if s!=None:
 				s.rollback()
@@ -351,6 +355,8 @@ class forcestopplan(tornado.web.RequestHandler):
 					so.userlog.debug('close db session for forcestop plan:'+str(planname))
 					so.error('plan '+str(planname)+' not exist')
 					return planname+":The plan does not exist!"
+			if os.path.exists(os.path.join(cp.exctmpdir,planname)):
+				shutil.rmtree(os.path.join(cp.exctmpdir,planname))
 		except Exception,e:
 			if s!=None:
 				s.rollback()

@@ -5,6 +5,7 @@ uploadcaseport=778
 tmpdir = home+'tmp/'
 casesdir='/home/uls/workplace/atplatform/atplatform/plan/cases/'
 maxuploadcase=20
+maxuploadupdatefiles=50
 
 # db
 Connect_string='mysql+mysqldb://root:root@127.0.0.1:3306/selenium?charset=utf8'

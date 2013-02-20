@@ -19,17 +19,19 @@ except:
 	pass
 from atplatform.case.testlogging import *
 sys.setdefaultencoding('utf8')
-from atplatform.case.uploadcase import uploadcase
+from atplatform.case.httpapi import *
 
 class StaticWWWHandler(tornado.web.StaticFileHandler):
 	def initialize(self, path, default_filename=None):
-		print path
 		self.root = os.path.abspath(path) + os.path.sep
 		self.default_filename = default_filename
 
 urls = [
 	('/www/(.*)',StaticWWWHandler,dict(path=cp.home+'static/')),
-	('/uploadcase(.*)', uploadcase)
+	('/uploadcase(.*)', uploadcase.uploadcase),
+	('/updatecasefiles(.*)', updatecasefiles.updatecasefiles),
+	('/case.search(.*)', case.search),
+	('/case.ban(.*)', case.ban)
 ]
 
 if __name__ == "__main__":

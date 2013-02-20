@@ -72,7 +72,7 @@ function loadtooltip(){
 	$(".lefttooltip").tooltip({placement:'left',delay:{ show: 100, hide: 1500 }});
 	$(".toptooltip").tooltip({placement:'top',delay:{ show: 100, hide: 800 }});
 	$(".righttooltip").tooltip({placement:'right',delay:{ show: 100, hide: 800 }});
-	$(".bottom").tooltip({placement:'bottom',delay:{ show: 100, hide: 800 }});
+	$(".bottomtooltip").tooltip({placement:'bottom',delay:{ show: 100, hide: 800 }});
 }
 
 
@@ -145,7 +145,11 @@ function appendcaseinfo(element){
 		errorpicdomimg.setAttribute("style","height:100px");
 		errorpicdoma.appendChild(errorpicdomimg);
 		}
-	tr.appendChild(getdomobject('td',j,{'name':j,'width':20}));
+        var index = getdomobject('td','',{'name':j,'width':20});
+        tr.appendChild(index);
+        var indexvalue = getdomobject('a',j,{});
+        index.appendChild(indexvalue);
+        indexvalue.href='/passreport/www/'+planname+'/planinfo.html#'+String(j);
 	var casenamedom=getdomobject('td',_case,{'class':'toptooltip','title':_case});
 	var starttimedom=getdomobject('td',starttime,{});
 	var endtimedom=getdomobject('td',endtime,{});
@@ -176,7 +180,11 @@ function appendplancaseinfo(element){
 	for (i in plancases)
 	{
 	var tr = document.createElement("tr");
-	tr.appendChild(getdomobject('td',j,{'name':j,'width':20}));
+    var index = getdomobject('td','',{'name':j,'width':20});
+	tr.appendChild(index);
+    var indexvalue = getdomobject('a',j,{});
+    index.appendChild(indexvalue);
+    indexvalue.href='/passreport/www/'+planname+'/casesexcuteinfo.html#'+String(j);
 	var casename=getdomobject('td',plancases[i][0],{});
 	var Browsername=getdomobject('td',plancases[i][1]['Browsername'],{});
 	var Browserversion=getdomobject('td',plancases[i][1]['Browserversion'],{});
@@ -236,6 +244,162 @@ function frontpage_load()
 	}
 }
 
+//customdata_load
+function customdata_loaddata()
+{
+    var casedata_location=document.getElementById('casedata_location');
+    for (var casename in cases)
+    {
+        var utildata = cases[casename][6];
+        var p_a=false;
+        for (var datatype in utildata)
+        {
+            p_a=true;break;
+        }
+        if (p_a==true)
+        {
+            var casedom=document.createElement('div');
+            casedom.setAttribute('class','row thumbnaillike');
+            casedom.setAttribute('id',casename);
+            casedata_location.appendChild(casedom);
+            //the title
+            var titledom=document.createElement('h4');
+            titledom.innerHTML=casename;
+            casedom.appendChild(titledom);
+            casedom.appendChild(document.createElement('hr'));
+            //set pics
+            if (utildata.hasOwnProperty('pic'))
+            {
+                var pichead=document.createElement('div');
+                pichead.setAttribute('class','row')
+                casedom.appendChild(pichead);
+                var pichead_p=document.createElement('p');
+                pichead_p.setAttribute('class','span2');
+                var pichead_b=document.createElement('b');
+                pichead_b.innerHTML='图片';
+                pichead.appendChild(pichead_p);
+                pichead_p.appendChild(pichead_b);
+                //pic body
+                var picbody=document.createElement('div');
+                picbody.setAttribute('class','row');
+                picbody.setAttribute('id',casename+'_pic');
+                casedom.appendChild(picbody);
+                var picbodyvalue=document.createElement('div');
+                picbody.appendChild(picbodyvalue);
+                picbodyvalue.setAttribute('class','span12');
+                //set pic body value
+                var thumbnails=document.createElement('ul');
+                thumbnails.setAttribute('class','thumbnails');
+                picbodyvalue.appendChild(thumbnails);
+                for (var data in utildata['pic'])
+                {
+                    var picname=utildata['pic'][data];
+                    var li=document.createElement('li');
+                    var a=document.createElement('a');
+                    var img=document.createElement('img');
+                    thumbnails.appendChild(li);
+                    li.appendChild(a);
+                    a.appendChild(img);
+                    li.setAttribute('class','span3');
+                    a.setAttribute('href','/static/resfiles/'+String(planname)+'/'+String(casename)+'/'+String(picname));
+                    a.setAttribute('rel','lightbox['+String(casename)+']');
+                    a.setAttribute('title',casename);
+                    a.setAttribute('class','thumbnail');
+                    img.setAttribute('src','/static/resfiles/'+String(planname)+'/'+String(casename)+'/'+String(picname));
+                }
+            }
+            //set texts
+            if (utildata.hasOwnProperty('text'))
+            {
+                var texthead=document.createElement('div');
+                texthead.setAttribute('class','row')
+                casedom.appendChild(texthead);
+                var texthead_p=document.createElement('p');
+                texthead_p.setAttribute('class','span2');
+                var texthead_b=document.createElement('b');
+                texthead_b.innerHTML='文本';
+                texthead.appendChild(texthead_p);
+                texthead_p.appendChild(texthead_b);
+                //pic body
+                var textbody=document.createElement('div');
+                textbody.setAttribute('class','row');
+                textbody.setAttribute('id',casename+'_text');
+                casedom.appendChild(textbody);
+                var textbodyvalue=document.createElement('div');
+                textbody.appendChild(textbodyvalue);
+                textbodyvalue.setAttribute('class','span12');
+                //set pic body value
+                var thumbnails=document.createElement('ul');
+                thumbnails.setAttribute('class','thumbnails');
+                textbodyvalue.appendChild(thumbnails);
+                for (var data in utildata['text'])
+                {
+                    var text=utildata['text'][data];
+                    var li=document.createElement('li');
+                    var a=document.createElement('a');
+                    thumbnails.appendChild(li);
+                    li.appendChild(a);
+                    li.setAttribute('class','span3 hidetext');
+                    a.setAttribute('href','javascript:void(0)');
+                    a.innerHTML=text;
+                    if (li.clientWidth<li.scrollWidth)
+                    {
+                        li.setAttribute('class', li.getAttribute('class')+' bottomtooltip');
+                        li.setAttribute('title',text);
+                    }
+                }
+            }
+            //set files
+            if (utildata.hasOwnProperty('file'))
+            {
+                var filehead=document.createElement('div');
+                filehead.setAttribute('class','row')
+                casedom.appendChild(filehead);
+                var filehead_p=document.createElement('p');
+                filehead_p.setAttribute('class','span2');
+                var filehead_b=document.createElement('b');
+                filehead_b.innerHTML='文件';
+                filehead.appendChild(filehead_p);
+                filehead_p.appendChild(filehead_b);
+                //pic body
+                var filebody=document.createElement('div');
+                filebody.setAttribute('class','row');
+                filebody.setAttribute('id',casename+'_text');
+                casedom.appendChild(filebody);
+                var filebodyvalue=document.createElement('div');
+                filebody.appendChild(filebodyvalue);
+                filebodyvalue.setAttribute('class','span12');
+                //set pic body value
+                var thumbnails=document.createElement('ul');
+                thumbnails.setAttribute('class','thumbnails');
+                filebodyvalue.appendChild(thumbnails);
+                for (var data in utildata['file'])
+                {
+                    var filename=utildata['file'][data];
+                    var li=document.createElement('li');
+                    var a=document.createElement('a');
+                    var i=document.createElement('i');
+                    thumbnails.appendChild(li);
+                    li.appendChild(a);
+                    li.setAttribute('class','span3 hidetext');
+                    a.setAttribute('href','/static/resfiles/'+String(planname)+'/'+String(casename)+'/'+String(filename));
+                    a.setAttribute('class','thumbnaillike');
+                    a.appendChild(i)
+                    i.setAttribute('class','icon-file');
+                    var filenamenode=document.createTextNode(filename);
+                    a.appendChild(filenamenode);
+                    if (li.clientWidth<li.scrollWidth)
+                    {
+                        li.setAttribute('class', li.getAttribute('class')+' bottomtooltip');
+                        li.setAttribute('title',filename);
+                    }
+                }
+            }
+            loadtooltip();
+            casedom.appendChild(document.createElement('br'));
+        }
+    }
+}
 
 function summary_loaddata(){
 	sumofpassedcases=getsumofpassedcases();

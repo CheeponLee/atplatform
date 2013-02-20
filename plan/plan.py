@@ -180,10 +180,10 @@ class plan(object):
 		else:
 			self.plantimeinfo[2]=time.time()
 			so.planprogresslog.debug('plan:'+self.name+' has finish and send result')
-			res=self.__senresult()
-			if os.exists(cp.exctmpdir+str(planname)):
+			res=self.__sendresult()
+			if os.path.exists(cp.exctmpdir+str(self.name)):
 				try:
-					shutil.rmtree(cp.exctmpdir+str(planname))
+					shutil.rmtree(cp.exctmpdir+str(self.name))
 				except:
 					so.runmanagerlog.critical('clean tmp dir error,planname:'+str(self.name))
 					raise Exception('delete tmp dir failed')
@@ -212,7 +212,7 @@ class plan(object):
 		so.planprogresslog.info('plan:'+self.name+' has finished all cases and send result')
 
 	@exceptioncatchcommon
-	def __senresult(self):
+	def __sendresult(self):
 		connection = pika.BlockingConnection(pika.ConnectionParameters(
         host=cp.mqhost))
 		channel = connection.channel()

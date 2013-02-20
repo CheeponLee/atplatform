@@ -35,9 +35,9 @@ class checkplanexist(tornado.web.RequestHandler):
 			info=u"planname is null"
 		s.close()
 		self.write(str(info).replace('None','null').replace("u'","'"))
+
 class StaticWWWHandler(tornado.web.StaticFileHandler):
 	def initialize(self, path, default_filename=None):
-		print path
 		self.root = os.path.abspath(path) + os.path.sep
 		self.default_filename = default_filename
 

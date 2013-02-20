@@ -6,6 +6,8 @@ from atplatform.wc import sharedobject as so
 from atplatform.wc.mappedtable import *
 from sqlalchemy.exc import *
 from sqlalchemy import desc
+import re
+import traceback
 
 def getvalue(params,key,default=None):
 	try:
@@ -16,20 +18,25 @@ def getvalue(params,key,default=None):
 	except:
 		return default
 
+def _strip(_str):
+	if _str!=None:
+		return _str.strip()
+	else:
+		return None
+
 class add(tornado.web.RequestHandler):
 	def post(self,argv):
 		sess=None
 		try:
 			data=urllib.unquote(self.request.body)
 			params=dict([x.split('=') for x in data.split('&')])
-			name=getvalue(params,'name')
-			version=getvalue(params,'version','1.0')
+			name=_strip(getvalue(params,'name'))
+			version=_strip(getvalue(params,'version','1.0'))
 			auttype=getvalue(params,'auttype','website')
 			acut=getvalue(params,'acut')
 			DESC=getvalue(params,'DESC')
-			if name==None:
-				self.write('failed,name is null')
-				so.userlog.error('autname is None')
+			vali_res=self.validation(name,version,DESC)
+			if vali_res!='pass':
 				return
 			sess=so.Session()
 			newaut=AUT(name)
@@ -51,13 +58,42 @@ class add(tornado.web.RequestHandler):
 				sess.rollback()
 			self.write('failed,params conflict')
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during add aut,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
 		finally:
 			if sess!=None:
 				sess.close()
+
+	def validation(self,name,version,DESC):
+		if name==None:
+			self.write('failed,name is null')
+			so.userlog.error('autname is None')
+			return 'not pass'
+		if version==None:
+			self.write('failed,aut version is null')
+			so.userlog.error('aut version is None')
+			return 'not pass'
+		regexpstr="^[\\x41-\\x5a,\\x61-\\x7a,\\x5f][\\s,\\x41-\\x5a,\\x61-\\x7a,\\x30-\\x39,\\x5f]*$"
+		if re.match(regexpstr,name)==None:
+			self.write('failed,name illegal')
+			so.userlog.error('autname illegal')
+			return 'not pass'
+		if len(name)>45:
+			self.write('failed,autname too long')
+			so.userlog.error('autname too long')
+			return 'not pass'
+		if len(version)>45:
+			self.write('failed,,version too long')
+			so.userlog.error('version too long')
+			return 'not pass'
+		if DESC!=None and len(DESC)>200:
+			self.write('failed,DESC too long')
+			so.userlog.error('DESC too long')
+			return 'not pass'
+		return 'pass'
+
 
 class modify(tornado.web.RequestHandler):
 	def post(self,argv):
@@ -66,15 +102,14 @@ class modify(tornado.web.RequestHandler):
 			data=urllib.unquote(self.request.body)
 			params=dict([x.split('=') for x in data.split('&')])
 			_id=getvalue(params,'id')
-			if _id==None:
-				self.write("failed,id is not given")
-				so.userlog.error('id is not given')
-				return
-			name=getvalue(params,'name')
-			version=getvalue(params,'version')
+			name=_strip(getvalue(params,'name'))
+			version=_strip(getvalue(params,'version'))
 			DESC=getvalue(params,'DESC')
 			addacut=getvalue(params,'addacut')
 			deleteacut=getvalue(params,'deleteacut')
+			vali_res=self.validation(_id,name,version,DESC)
+			if vali_res!='pass':
+				return
 			sess=so.Session()
 			auts=sess.query(AUT).filter(AUT.ID==_id).all()
 			if len(auts)==0:
@@ -107,13 +142,45 @@ class modify(tornado.web.RequestHandler):
 				sess.rollback()
 			self.write('failed,params conflict')
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during modify aut,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
 		finally:
 			if sess!=None:
 				sess.close()
+
+	def validation(self,_id,name,version,DESC):
+		if _id==None:
+			self.write("failed,id is not given")
+			so.userlog.error('id is not given')
+			return 'not pass'
+		if name==None:
+			self.write('failed,name is null')
+			so.userlog.error('autname is None')
+			return 'not pass'
+		if version==None:
+			self.write('failed,aut version is null')
+			so.userlog.error('aut version is None')
+			return 'not pass'
+		regexpstr="^[\\x41-\\x5a,\\x61-\\x7a,\\x5f][\\s,\\x41-\\x5a,\\x61-\\x7a,\\x30-\\x39,\\x5f]*$"
+		if re.match(regexpstr,name)==None:
+			self.write('failed,name illegal')
+			so.userlog.error('autname illegal')
+			return 'not pass'
+		if len(name)>45:
+			self.write('failed,autname too long')
+			so.userlog.error('autname too long')
+			return 'not pass'
+		if len(version)>45:
+			self.write('failed,,version too long')
+			so.userlog.error('version too long')
+			return 'not pass'
+		if DESC!=None and len(DESC)>200:
+			self.write('failed,DESC too long')
+			so.userlog.error('DESC too long')
+			return 'not pass'
+		return 'pass'
 
 class search(tornado.web.RequestHandler):
 	def get(self,argv):
@@ -168,7 +235,7 @@ class search(tornado.web.RequestHandler):
 			self.write(str(returnlist).replace('None','null').replace("u'$$##","'"))
 			so.userlog.info('return '+str(len(res))+' auts')
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during search aut,traceback:'+str(traceback.format_exc()))
 			if s!=None:
 				s.rollback()
 			self.write('failed')
@@ -201,7 +268,7 @@ class delete(tornado.web.RequestHandler):
 			self.write(str(res).replace('None','null'))
 			so.userlog.info('delete aut:'+str(res))
 		except Exception,e:
-			so.userlog.error(str(e))
+			so.userlog.error('error occured during delete aut,traceback:'+str(traceback.format_exc()))
 			if sess!=None:
 				sess.rollback()
 			self.write('failed')
